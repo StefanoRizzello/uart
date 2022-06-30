@@ -1,0 +1,16 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all; 
+
+ENTITY start_g IS 
+
+PORT (PIN_0,PIN_1,PIN_2,PIN_3,PIN_4,PIN_5,PIN_6,PIN_7 : IN std_logic;       
+      START: OUT std_logic);
+END start_g ;
+ARCHITECTURE behav OF and IS
+
+BEGIN
+
+
+START<= PIN_0 and PIN_1 and PIN_2 and PIN_3 and (NOT PIN_4) and (NOT PIN_5) and (NOT PIN_6) and (NOT PIN_7);
+end behav; 

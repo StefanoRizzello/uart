@@ -1,0 +1,15 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all; 
+
+ENTITY OR_GATE IS
+
+port ( DONE_T, DONE_R, NEW_TX, READ_RX: IN std_logic;
+       ATN_req, update_req : OUT std_logic);
+end OR_GATE;
+
+ARCHITECTURE behav of OR_GATE IS 
+
+ATN_req <= DONE_T OR DONE_R;
+update_req <= NEW_TX OR READ_RX;
+END behav;

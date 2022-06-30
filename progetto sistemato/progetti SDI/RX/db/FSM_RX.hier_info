@@ -1,0 +1,287 @@
+|RX
+CLK => FSM_RX:CU.clk
+CLK => shift_register:SHC.CLK
+CLK => REG:regA0.CLK
+CLK => REG:regA1.CLK
+CLK => REG:regA2.CLK
+CLK => REG:regVot.CLK
+CLK => shift_register:SHPIN.CLK
+CLK => Cnt_c:counter_c.CLK
+CLK => Cnt_0:counter_0.CLK
+DATA_IN => shift_register:SHC.RxD
+RX_EN => FSM_RX:CU.rx_en
+
+
+|RX|FSM_RX:CU
+clk => PS~1.DATAIN
+start => Selector8.IN0
+start => Selector7.IN0
+tc1 => Selector5.IN5
+tc1 => Selector5.IN6
+tc1 => Selector5.IN7
+tc1 => Selector5.IN8
+tc1 => Selector5.IN9
+tc1 => Selector5.IN10
+tc1 => Selector5.IN11
+tc1 => Selector5.IN12
+tc1 => Selector4.IN5
+tc1 => Selector4.IN6
+tc1 => Selector4.IN7
+tc1 => Selector4.IN8
+tc1 => Selector4.IN9
+tc1 => Selector4.IN10
+tc1 => Selector4.IN11
+tc1 => Selector4.IN12
+tc1 => Selector3.IN5
+tc1 => Selector3.IN6
+tc1 => Selector3.IN7
+tc1 => Selector3.IN8
+tc1 => Selector3.IN9
+tc1 => Selector3.IN10
+tc1 => Selector3.IN11
+tc1 => Selector3.IN12
+tc1 => Selector2.IN5
+tc1 => Selector2.IN6
+tc1 => Selector2.IN7
+tc1 => Selector2.IN8
+tc1 => Selector2.IN9
+tc1 => Selector2.IN10
+tc1 => Selector2.IN11
+tc1 => Selector2.IN12
+tc1 => Selector1.IN4
+tc1 => Selector1.IN5
+tc1 => Selector1.IN6
+tc1 => Selector1.IN7
+tc1 => Selector1.IN8
+tc1 => Selector1.IN9
+tc1 => Selector1.IN10
+tc1 => Selector1.IN11
+tc1 => Selector0.IN5
+tc1 => Selector0.IN6
+tc1 => Selector0.IN7
+tc1 => Selector0.IN8
+tc1 => Selector0.IN9
+tc1 => Selector0.IN10
+tc1 => Selector0.IN11
+tc1 => Selector0.IN12
+tc1 => Selector32.IN5
+tc1 => Selector32.IN6
+tc1 => Selector32.IN7
+tc1 => Selector32.IN8
+tc1 => Selector32.IN9
+tc1 => Selector32.IN10
+tc1 => Selector32.IN11
+tc1 => Selector32.IN12
+tc1 => Selector31.IN5
+tc1 => Selector31.IN6
+tc1 => Selector31.IN7
+tc1 => Selector31.IN8
+tc1 => Selector31.IN9
+tc1 => Selector31.IN10
+tc1 => Selector31.IN11
+tc1 => Selector31.IN12
+tc1 => Selector30.IN5
+tc1 => Selector30.IN6
+tc1 => Selector30.IN7
+tc1 => Selector30.IN8
+tc1 => Selector30.IN9
+tc1 => Selector30.IN10
+tc1 => Selector30.IN11
+tc1 => Selector30.IN12
+tc1 => Selector29.IN5
+tc1 => Selector29.IN6
+tc1 => Selector29.IN7
+tc1 => Selector29.IN8
+tc1 => Selector29.IN9
+tc1 => Selector29.IN10
+tc1 => Selector29.IN11
+tc1 => Selector29.IN12
+tc1 => Selector33.IN5
+tc1 => Selector33.IN6
+tc1 => Selector33.IN7
+tc1 => Selector33.IN8
+tc1 => Selector33.IN9
+tc1 => Selector33.IN10
+tc1 => Selector33.IN11
+tc1 => Selector33.IN12
+tc2 => Selector5.IN13
+tc2 => Selector4.IN13
+tc2 => Selector3.IN13
+tc2 => Selector2.IN13
+tc2 => Selector1.IN12
+tc2 => Selector0.IN13
+tc2 => Selector32.IN13
+tc2 => Selector31.IN13
+tc2 => Selector30.IN13
+tc2 => Selector29.IN13
+tc2 => Selector33.IN13
+tc3 => Selector5.IN14
+tc3 => Selector4.IN14
+tc3 => Selector3.IN14
+tc3 => Selector2.IN14
+tc3 => Selector1.IN13
+tc3 => Selector0.IN14
+tc3 => Selector32.IN14
+tc3 => Selector31.IN14
+tc3 => Selector30.IN14
+tc3 => Selector29.IN14
+tc3 => Selector33.IN14
+tc0 => Selector28.IN0
+tc0 => Selector27.IN0
+rx_en => Selector5.IN15
+rx_en => Selector4.IN15
+rx_en => Selector3.IN15
+rx_en => Selector2.IN15
+rx_en => Selector1.IN14
+rx_en => Selector0.IN15
+rx_en => Selector32.IN15
+rx_en => Selector31.IN15
+rx_en => Selector30.IN15
+rx_en => Selector29.IN15
+rx_en => Selector33.IN15
+
+
+|RX|shift_register:SHC
+RxD => SD[7].DATAIN
+CLK => SD[0].CLK
+CLK => SD[1].CLK
+CLK => SD[2].CLK
+CLK => SD[3].CLK
+CLK => SD[4].CLK
+CLK => SD[5].CLK
+CLK => SD[6].CLK
+CLK => SD[7].CLK
+SH_C => SD[0].ENA
+SH_C => SD[1].ENA
+SH_C => SD[2].ENA
+SH_C => SD[3].ENA
+SH_C => SD[4].ENA
+SH_C => SD[5].ENA
+SH_C => SD[6].ENA
+SH_C => SD[7].ENA
+
+
+|RX|start_g:strt
+IN_0 => START.IN0
+IN_1 => START.IN1
+IN_2 => START.IN1
+IN_3 => START.IN1
+IN_4 => START.IN1
+IN_5 => START.IN1
+IN_6 => START.IN1
+IN_7 => START.IN1
+
+
+|RX|REG:regA0
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+
+
+|RX|REG:regA1
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+
+
+|RX|REG:regA2
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+
+
+|RX|VOTER:vot
+Q0 => V.IN0
+Q0 => V.IN0
+Q1 => V.IN1
+Q1 => V.IN0
+Q2 => V.IN1
+Q2 => V.IN1
+
+
+|RX|REG:regVot
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+
+
+|RX|shift_register:SHPIN
+RxD => SD[7].DATAIN
+CLK => SD[0].CLK
+CLK => SD[1].CLK
+CLK => SD[2].CLK
+CLK => SD[3].CLK
+CLK => SD[4].CLK
+CLK => SD[5].CLK
+CLK => SD[6].CLK
+CLK => SD[7].CLK
+SH_C => SD[0].ENA
+SH_C => SD[1].ENA
+SH_C => SD[2].ENA
+SH_C => SD[3].ENA
+SH_C => SD[4].ENA
+SH_C => SD[5].ENA
+SH_C => SD[6].ENA
+SH_C => SD[7].ENA
+
+
+|RX|Cnt_c:counter_c
+CLR => K[0].ACLR
+CLR => K[1].ACLR
+CLR => K[2].ACLR
+CLR => K[3].ACLR
+CLR => K[4].ACLR
+CLR => K[5].ACLR
+CLR => K[6].ACLR
+CLR => TC3~reg0.ACLR
+CLR => TC2~reg0.ACLR
+CLR => TC1~reg0.ACLR
+CLK => K[0].CLK
+CLK => K[1].CLK
+CLK => K[2].CLK
+CLK => K[3].CLK
+CLK => K[4].CLK
+CLK => K[5].CLK
+CLK => K[6].CLK
+CLK => TC3~reg0.CLK
+CLK => TC2~reg0.CLK
+CLK => TC1~reg0.CLK
+CE => K[0].ENA
+CE => TC1~reg0.ENA
+CE => TC2~reg0.ENA
+CE => TC3~reg0.ENA
+CE => K[6].ENA
+CE => K[5].ENA
+CE => K[4].ENA
+CE => K[3].ENA
+CE => K[2].ENA
+CE => K[1].ENA
+
+
+|RX|Cnt_0:counter_0
+CLR => K[0].ACLR
+CLR => K[1].ACLR
+CLR => K[2].ACLR
+CLR => K[3].ACLR
+CLR => K[4].ACLR
+CLR => K[5].ACLR
+CLR => K[6].ACLR
+CLR => TC0~reg0.ACLR
+CLK => K[0].CLK
+CLK => K[1].CLK
+CLK => K[2].CLK
+CLK => K[3].CLK
+CLK => K[4].CLK
+CLK => K[5].CLK
+CLK => K[6].CLK
+CLK => TC0~reg0.CLK
+CE => K[0].ENA
+CE => TC0~reg0.ENA
+CE => K[6].ENA
+CE => K[5].ENA
+CE => K[4].ENA
+CE => K[3].ENA
+CE => K[2].ENA
+CE => K[1].ENA
+
+

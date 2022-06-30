@@ -1,0 +1,53 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'FSM_ATN:CU|PS.POLLING'
+Slack : -2.603
+TNS   : -2.603
+
+Type  : Slow Model Setup 'CLK'
+Slack : 0.379
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CLK'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'FSM_ATN:CU|PS.POLLING'
+Slack : 2.767
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -13.380
+
+Type  : Slow Model Minimum Pulse Width 'FSM_ATN:CU|PS.POLLING'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'FSM_ATN:CU|PS.POLLING'
+Slack : -1.100
+TNS   : -1.100
+
+Type  : Fast Model Setup 'CLK'
+Slack : 0.665
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLK'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'FSM_ATN:CU|PS.POLLING'
+Slack : 1.747
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -13.380
+
+Type  : Fast Model Minimum Pulse Width 'FSM_ATN:CU|PS.POLLING'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all; 
+
+ENTITY MUX_OUT IS 
+PORT( RX_IN : IN std_logic_vector( 7 downto 0);
+      STATUS_IN: IN std_logic_vector (2 downto 0);
+		SEL_E: IN std_logic_vector (2 downto 0);
+		OUTPUT: OUT std_logic_vector (7 downto 0));
+END MUX_OUT;
+
+ARCHITECTURE behav OF MUX_OUT IS 
+
+BEGIN
+PROCESS(SEL_E)
+BEGIN 
+IF (SEL_E = "011") THEN OUTPUT<= RX_IN; -- CODICE INDIRIZZO RX_REG
+END IF;
+IF (SEL_E = "010") THEN OUTPUT<= "0000" & STATUS_IN; -- CODICE INDIRIZZO STATUS REG
+END IF;
+
+END PROCESS
+END behav;		

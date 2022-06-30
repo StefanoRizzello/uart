@@ -1,0 +1,277 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : -5.678
+TNS   : -110.115
+
+Type  : Slow 1100mV 85C Model Setup 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -5.139
+TNS   : -5.139
+
+Type  : Slow 1100mV 85C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -5.113
+TNS   : -102.656
+
+Type  : Slow 1100mV 85C Model Setup 'CS'
+Slack : -3.858
+TNS   : -7.655
+
+Type  : Slow 1100mV 85C Model Setup 'CLK'
+Slack : -2.885
+TNS   : -254.115
+
+Type  : Slow 1100mV 85C Model Hold 'CLK'
+Slack : -2.644
+TNS   : -35.171
+
+Type  : Slow 1100mV 85C Model Hold 'CS'
+Slack : 1.968
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 2.803
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 3.072
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 4.189
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'CLK'
+Slack : -2.237
+TNS   : -58.908
+
+Type  : Slow 1100mV 85C Model Removal 'CLK'
+Slack : 1.432
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -0.724
+TNS   : -161.221
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CS'
+Slack : 0.232
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 0.292
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 0.368
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 0.437
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : -5.861
+TNS   : -114.069
+
+Type  : Slow 1100mV 0C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -5.313
+TNS   : -105.358
+
+Type  : Slow 1100mV 0C Model Setup 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -5.301
+TNS   : -5.301
+
+Type  : Slow 1100mV 0C Model Setup 'CS'
+Slack : -4.073
+TNS   : -8.045
+
+Type  : Slow 1100mV 0C Model Setup 'CLK'
+Slack : -2.748
+TNS   : -236.414
+
+Type  : Slow 1100mV 0C Model Hold 'CLK'
+Slack : -2.752
+TNS   : -37.272
+
+Type  : Slow 1100mV 0C Model Hold 'CS'
+Slack : 1.933
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 2.921
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 3.118
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 4.240
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'CLK'
+Slack : -2.256
+TNS   : -56.306
+
+Type  : Slow 1100mV 0C Model Removal 'CLK'
+Slack : 1.365
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -0.724
+TNS   : -162.585
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CS'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 0.293
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 0.428
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : -1.924
+TNS   : -35.949
+
+Type  : Fast 1100mV 85C Model Setup 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -1.806
+TNS   : -1.806
+
+Type  : Fast 1100mV 85C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -1.799
+TNS   : -35.675
+
+Type  : Fast 1100mV 85C Model Setup 'CLK'
+Slack : -1.662
+TNS   : -61.476
+
+Type  : Fast 1100mV 85C Model Setup 'CS'
+Slack : -0.997
+TNS   : -1.924
+
+Type  : Fast 1100mV 85C Model Hold 'CLK'
+Slack : -0.898
+TNS   : -10.359
+
+Type  : Fast 1100mV 85C Model Hold 'CS'
+Slack : 0.594
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 1.396
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 1.633
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 2.073
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'CLK'
+Slack : -0.230
+TNS   : -4.926
+
+Type  : Fast 1100mV 85C Model Removal 'CLK'
+Slack : 0.571
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CS'
+Slack : -0.118
+TNS   : -0.548
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -0.085
+TNS   : -11.569
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 0.474
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : -1.874
+TNS   : -35.039
+
+Type  : Fast 1100mV 0C Model Setup 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -1.731
+TNS   : -1.731
+
+Type  : Fast 1100mV 0C Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -1.723
+TNS   : -34.301
+
+Type  : Fast 1100mV 0C Model Setup 'CLK'
+Slack : -1.250
+TNS   : -40.709
+
+Type  : Fast 1100mV 0C Model Setup 'CS'
+Slack : -0.863
+TNS   : -1.676
+
+Type  : Fast 1100mV 0C Model Hold 'CLK'
+Slack : -0.886
+TNS   : -10.489
+
+Type  : Fast 1100mV 0C Model Hold 'CS'
+Slack : 0.535
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 1.417
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 1.619
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 2.020
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'CLK'
+Slack : -0.126
+TNS   : -2.078
+
+Type  : Fast 1100mV 0C Model Removal 'CLK'
+Slack : 0.525
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CS'
+Slack : -0.087
+TNS   : -0.377
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -0.084
+TNS   : -11.637
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 0.374
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 0.478
+TNS   : 0.000
+
+------------------------------------------------------------

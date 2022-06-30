@@ -1,0 +1,189 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLK'
+Slack : -4.090
+TNS   : -298.017
+
+Type  : Slow Model Setup 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -2.579
+TNS   : -7.005
+
+Type  : Slow Model Setup 'tx:trasm|FSM_tx:CU|PS.ERROR_CHECK_ST'
+Slack : -1.885
+TNS   : -6.016
+
+Type  : Slow Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -1.752
+TNS   : -16.752
+
+Type  : Slow Model Setup 'RX:rix|FSM_RX:CU|PS.ERROR_CHECK_ST'
+Slack : -0.817
+TNS   : -1.719
+
+Type  : Slow Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : -0.295
+TNS   : -0.295
+
+Type  : Slow Model Setup 'CS'
+Slack : 0.026
+TNS   : 0.000
+
+Type  : Slow Model Hold 'RX:rix|FSM_RX:CU|PS.ERROR_CHECK_ST'
+Slack : -5.381
+TNS   : -20.745
+
+Type  : Slow Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : -4.326
+TNS   : -22.031
+
+Type  : Slow Model Hold 'tx:trasm|FSM_tx:CU|PS.ERROR_CHECK_ST'
+Slack : -4.313
+TNS   : -13.641
+
+Type  : Slow Model Hold 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -3.619
+TNS   : -11.647
+
+Type  : Slow Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -3.113
+TNS   : -3.310
+
+Type  : Slow Model Hold 'CS'
+Slack : -1.479
+TNS   : -2.369
+
+Type  : Slow Model Hold 'CLK'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'CLK'
+Slack : -2.283
+TNS   : -75.309
+
+Type  : Slow Model Removal 'CLK'
+Slack : -2.100
+TNS   : -14.959
+
+Type  : Slow Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -171.380
+
+Type  : Slow Model Minimum Pulse Width 'CS'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Slow Model Minimum Pulse Width 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'RX:rix|FSM_RX:CU|PS.ERROR_CHECK_ST'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'tx:trasm|FSM_tx:CU|PS.ERROR_CHECK_ST'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLK'
+Slack : -1.402
+TNS   : -61.934
+
+Type  : Fast Model Setup 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -0.892
+TNS   : -2.361
+
+Type  : Fast Model Setup 'tx:trasm|FSM_tx:CU|PS.ERROR_CHECK_ST'
+Slack : -0.589
+TNS   : -1.940
+
+Type  : Fast Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -0.481
+TNS   : -2.780
+
+Type  : Fast Model Setup 'RX:rix|FSM_RX:CU|PS.ERROR_CHECK_ST'
+Slack : -0.104
+TNS   : -0.104
+
+Type  : Fast Model Setup 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CS'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Fast Model Hold 'RX:rix|FSM_RX:CU|PS.ERROR_CHECK_ST'
+Slack : -2.684
+TNS   : -9.691
+
+Type  : Fast Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : -2.295
+TNS   : -4.293
+
+Type  : Fast Model Hold 'tx:trasm|FSM_tx:CU|PS.ERROR_CHECK_ST'
+Slack : -2.199
+TNS   : -6.459
+
+Type  : Fast Model Hold 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : -1.896
+TNS   : -5.404
+
+Type  : Fast Model Hold 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : -1.753
+TNS   : -1.753
+
+Type  : Fast Model Hold 'CS'
+Slack : -0.338
+TNS   : -0.428
+
+Type  : Fast Model Hold 'CLK'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'CLK'
+Slack : -0.557
+TNS   : -16.069
+
+Type  : Fast Model Removal 'CLK'
+Slack : -1.198
+TNS   : -10.603
+
+Type  : Fast Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -171.380
+
+Type  : Fast Model Minimum Pulse Width 'CS'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Fast Model Minimum Pulse Width 'ATN:ATN_B|FSM_ATN:CU|PS.POLLING'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[0]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'BUS_INT:bus_i|REG_CONTROL:R_C|S[1]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'RX:rix|FSM_RX:CU|PS.ERROR_CHECK_ST'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'tx:trasm|FSM_tx:CU|PS.ERROR_CHECK_ST'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

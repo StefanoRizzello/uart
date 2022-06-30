@@ -1,0 +1,117 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLK'
+Slack : -3.652
+TNS   : -260.111
+
+Type  : Slow Model Setup 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_RX_ST'
+Slack : -1.559
+TNS   : -13.958
+
+Type  : Slow Model Setup 'ATNCK'
+Slack : -0.538
+TNS   : -0.715
+
+Type  : Slow Model Setup 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_TX_ST'
+Slack : 0.843
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ATNCK'
+Slack : -4.762
+TNS   : -14.636
+
+Type  : Slow Model Hold 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_TX_ST'
+Slack : -1.651
+TNS   : -29.514
+
+Type  : Slow Model Hold 'CLK'
+Slack : -0.171
+TNS   : -0.171
+
+Type  : Slow Model Hold 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_RX_ST'
+Slack : -0.113
+TNS   : -0.189
+
+Type  : Slow Model Recovery 'CLK'
+Slack : -1.907
+TNS   : -42.719
+
+Type  : Slow Model Removal 'CLK'
+Slack : 0.516
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -139.380
+
+Type  : Slow Model Minimum Pulse Width 'ATNCK'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Slow Model Minimum Pulse Width 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_RX_ST'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_TX_ST'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLK'
+Slack : -1.195
+TNS   : -67.434
+
+Type  : Fast Model Setup 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_RX_ST'
+Slack : -0.478
+TNS   : -2.866
+
+Type  : Fast Model Setup 'ATNCK'
+Slack : 0.221
+TNS   : 0.000
+
+Type  : Fast Model Setup 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_TX_ST'
+Slack : 0.796
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ATNCK'
+Slack : -2.619
+TNS   : -5.290
+
+Type  : Fast Model Hold 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_TX_ST'
+Slack : -0.552
+TNS   : -7.844
+
+Type  : Fast Model Hold 'CLK'
+Slack : 0.021
+TNS   : 0.000
+
+Type  : Fast Model Hold 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_RX_ST'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'CLK'
+Slack : -0.556
+TNS   : -6.970
+
+Type  : Fast Model Removal 'CLK'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -139.380
+
+Type  : Fast Model Minimum Pulse Width 'ATNCK'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Fast Model Minimum Pulse Width 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_RX_ST'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'BUS_INT:bus_i|FSM_BUS:CU|PS.EN_TX_ST'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

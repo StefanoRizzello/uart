@@ -1,0 +1,738 @@
+Analysis & Synthesis report for UART_2
+Tue Jan 19 22:49:53 2021
+Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |UART|ATN:ATN_B|FSM_ATN:CU|PS
+  9. State Machine - |UART|BUS_INT:bus_i|FSM_BUS:CU|PS
+ 10. State Machine - |UART|RX:rix|FSM_RX:CU|PS
+ 11. State Machine - |UART|tx:trasm|FSM_tx:CU|PS
+ 12. User-Specified and Inferred Latches
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                       ;
++------------------------------------+-----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Jan 19 22:49:53 2021         ;
+; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
+; Revision Name                      ; UART_2                                        ;
+; Top-level Entity Name              ; UART                                          ;
+; Family                             ; Cyclone II                                    ;
+; Total logic elements               ; 259                                           ;
+;     Total combinational functions  ; 210                                           ;
+;     Dedicated logic registers      ; 170                                           ;
+; Total registers                    ; 170                                           ;
+; Total pins                         ; 26                                            ;
+; Total virtual pins                 ; 0                                             ;
+; Total memory bits                  ; 0                                             ;
+; Embedded Multiplier 9-bit elements ; 0                                             ;
+; Total PLLs                         ; 0                                             ;
++------------------------------------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35U484C6       ;                    ;
+; Top-level entity name                                                      ; UART               ; UART_2             ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                      ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+
+; UART.vhd                         ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/UART_2/UART.vhd          ;
+; ../BUS_2/REG_TX.vhd              ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/REG_TX.vhd         ;
+; ../BUS_2/REG_STATUS.vhd          ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/REG_STATUS.vhd     ;
+; ../BUS_2/REG_RX.vhd              ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/REG_RX.vhd         ;
+; ../BUS_2/REG_GATE.vhd            ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/REG_GATE.vhd       ;
+; ../BUS_2/REG_CONTROL.vhd         ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/REG_CONTROL.vhd    ;
+; ../BUS_2/MUX_OUT.vhd             ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/MUX_OUT.vhd        ;
+; ../BUS_2/FSM_bus.vhd             ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/FSM_bus.vhd        ;
+; ../BUS_2/BUS_INT.vhd             ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/BUS_INT.vhd        ;
+; ../BUS_2/ADD.vhd                 ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/BUS_2/ADD.vhd            ;
+; ../ATN/REG7.vhd                  ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/ATN/REG7.vhd             ;
+; ../ATN/OR_GATE.vhd               ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/ATN/OR_GATE.vhd          ;
+; ../ATN/FSM_ATN.vhd               ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/ATN/FSM_ATN.vhd          ;
+; ../ATN/ATN.vhd                   ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/ATN/ATN.vhd              ;
+; ../TX/tx.vhd                     ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/TX/tx.vhd                ;
+; ../TX/shift_register_tx.vhd      ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/TX/shift_register_tx.vhd ;
+; ../TX/FSM_tx.vhd                 ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/TX/FSM_tx.vhd            ;
+; ../TX/FlipFlop.vhd               ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/TX/FlipFlop.vhd          ;
+; ../TX/Counter_tx.vhd             ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/TX/Counter_tx.vhd        ;
+; ../RX/VOTER.vhd                  ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/VOTER.vhd             ;
+; ../RX/start_g.vhd                ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/start_g.vhd           ;
+; ../RX/SHIFT_REGISTER.vhd         ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/SHIFT_REGISTER.vhd    ;
+; ../RX/RX.vhd                     ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/RX.vhd                ;
+; ../RX/REG.vhd                    ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/REG.vhd               ;
+; ../RX/FSM_RX.vhd                 ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/FSM_RX.vhd            ;
+; ../RX/Cnt_c.vhd                  ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/Cnt_c.vhd             ;
+; ../RX/Cnt_0.vhd                  ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/Cnt_0.vhd             ;
+; ../TX/cnt_TX_CONTROL.vhd         ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/TX/cnt_TX_CONTROL.vhd    ;
+; ../RX/TC_rx_ctrln.vhd            ; yes             ; User VHDL File  ; C:/Users/Utente.000/Desktop/progetti SDI/RX/TC_rx_ctrln.vhd       ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 259   ;
+;                                             ;       ;
+; Total combinational functions               ; 210   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 58    ;
+;     -- 3 input functions                    ; 96    ;
+;     -- <=2 input functions                  ; 56    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 176   ;
+;     -- arithmetic mode                      ; 34    ;
+;                                             ;       ;
+; Total registers                             ; 170   ;
+;     -- Dedicated logic registers            ; 170   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 26    ;
+; Maximum fan-out node                        ; CLK   ;
+; Maximum fan-out                             ; 170   ;
+; Total fan-out                               ; 1120  ;
+; Average fan-out                             ; 2.76  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+--------------+
+; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Library Name ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+--------------+
+; |UART                           ; 210 (0)           ; 170 (0)      ; 0           ; 0            ; 0       ; 0         ; 26   ; 0            ; |UART                                  ;              ;
+;    |ATN:ATN_B|                  ; 19 (3)            ; 15 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|ATN:ATN_B                        ;              ;
+;       |FSM_ATN:CU|              ; 13 (13)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|ATN:ATN_B|FSM_ATN:CU             ;              ;
+;       |REG7:reg_7|              ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|ATN:ATN_B|REG7:reg_7             ;              ;
+;       |REG:REG_ERROR|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|ATN:ATN_B|REG:REG_ERROR          ;              ;
+;       |REG:REG_RX|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|ATN:ATN_B|REG:REG_RX             ;              ;
+;       |REG:REG_TX|              ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|ATN:ATN_B|REG:REG_TX             ;              ;
+;    |BUS_INT:bus_i|              ; 28 (0)            ; 25 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i                    ;              ;
+;       |ADD:address_mux|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|ADD:address_mux    ;              ;
+;       |ADD:address|             ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|ADD:address        ;              ;
+;       |FSM_BUS:CU|              ; 11 (11)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|FSM_BUS:CU         ;              ;
+;       |MUX_OUT:MUX|             ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|MUX_OUT:MUX        ;              ;
+;       |REG_CONTROL:R_C|         ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|REG_CONTROL:R_C    ;              ;
+;       |REG_GATE:gate|           ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|REG_GATE:gate      ;              ;
+;       |REG_RX:R_RX|             ; 1 (1)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|REG_RX:R_RX        ;              ;
+;       |REG_STATUS:R_S|          ; 1 (1)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|REG_STATUS:R_S     ;              ;
+;       |REG_TX:R_TX|             ; 1 (1)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|BUS_INT:bus_i|REG_TX:R_TX        ;              ;
+;    |RX:rix|                     ; 88 (0)            ; 75 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix                           ;              ;
+;       |Cnt_0:counter_0|         ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|Cnt_0:counter_0           ;              ;
+;       |Cnt_RX_CONTROL:WD|       ; 15 (15)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|Cnt_RX_CONTROL:WD         ;              ;
+;       |Cnt_c:counter_c|         ; 14 (14)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|Cnt_c:counter_c           ;              ;
+;       |FSM_RX:CU|               ; 45 (45)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|FSM_RX:CU                 ;              ;
+;       |REG:regA0|               ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|REG:regA0                 ;              ;
+;       |REG:regA1|               ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|REG:regA1                 ;              ;
+;       |REG:regA2|               ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|REG:regA2                 ;              ;
+;       |REG:regVot|              ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|REG:regVot                ;              ;
+;       |shift_register:SHC|      ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|shift_register:SHC        ;              ;
+;       |shift_register:SHPIN|    ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|shift_register:SHPIN      ;              ;
+;       |start_g:strt|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|RX:rix|start_g:strt              ;              ;
+;    |tx:trasm|                   ; 75 (0)            ; 55 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|tx:trasm                         ;              ;
+;       |Cnt_TX_CONTROL:WD_tx|    ; 15 (15)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|tx:trasm|Cnt_TX_CONTROL:WD_tx    ;              ;
+;       |Counter_tx:CNT|          ; 12 (12)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|tx:trasm|Counter_tx:CNT          ;              ;
+;       |FSM_tx:CU|               ; 37 (37)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|tx:trasm|FSM_tx:CU               ;              ;
+;       |FlipFlop:FF|             ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|tx:trasm|FlipFlop:FF             ;              ;
+;       |shift_register_tx:S_REG| ; 11 (11)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART|tx:trasm|shift_register_tx:S_REG ;              ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |UART|ATN:ATN_B|FSM_ATN:CU|PS                    ;
++-------------+-------------+-------------+-----------+------------+
+; Name        ; PS.ERROR_ST ; PS.ATNCK_ST ; PS.ATN_ST ; PS.POLLING ;
++-------------+-------------+-------------+-----------+------------+
+; PS.POLLING  ; 0           ; 0           ; 0         ; 0          ;
+; PS.ATN_ST   ; 0           ; 0           ; 1         ; 1          ;
+; PS.ATNCK_ST ; 0           ; 1           ; 0         ; 1          ;
+; PS.ERROR_ST ; 1           ; 0           ; 0         ; 1          ;
++-------------+-------------+-------------+-----------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------+
+; State Machine - |UART|BUS_INT:bus_i|FSM_BUS:CU|PS               ;
++-------------+-----------+-------------+------------+------------+
+; Name        ; PS.MUX_ST ; PS.WRITE_ST ; PS.READ_ST ; PS.WAIT_ST ;
++-------------+-----------+-------------+------------+------------+
+; PS.WAIT_ST  ; 0         ; 0           ; 0          ; 0          ;
+; PS.READ_ST  ; 0         ; 0           ; 1          ; 1          ;
+; PS.WRITE_ST ; 0         ; 1           ; 0          ; 1          ;
+; PS.MUX_ST   ; 1         ; 0           ; 0          ; 1          ;
++-------------+-----------+-------------+------------+------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |UART|RX:rix|FSM_RX:CU|PS                                                                                                                                                                                                                                              ;
++-------------------+-------------------+------------+------------+-------+---------+----------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------------+-------+---------+---------+
+; Name              ; PS.ERROR_CHECK_ST ; PS.DONE_ST ; PS.WAIT_ST ; PS.LP ; PS.VOTE ; PS.REG_A ; PS.SH_C7 ; PS.C6 ; PS.SH_C6 ; PS.C5 ; PS.SH_C5 ; PS.C4 ; PS.SH_C4 ; PS.C3 ; PS.SH_C3 ; PS.C2 ; PS.SH_C2 ; PS.C1 ; PS.SH_C1 ; PS.C0 ; PS.SH_C0 ; PS.START_ST ; PS.NC ; PS.SH_X ; PS.IDLE ;
++-------------------+-------------------+------------+------------+-------+---------+----------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------------+-------+---------+---------+
+; PS.IDLE           ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 0       ;
+; PS.SH_X           ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 1       ; 1       ;
+; PS.NC             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 1     ; 0       ; 1       ;
+; PS.START_ST       ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 1           ; 0     ; 0       ; 1       ;
+; PS.SH_C0          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 1        ; 0           ; 0     ; 0       ; 1       ;
+; PS.C0             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 1     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.SH_C1          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 1        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.C1             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 1     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.SH_C2          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 1        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.C2             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 1     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.SH_C3          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 1        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.C3             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 1     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.SH_C4          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 1        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.C4             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 1     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.SH_C5          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 1        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.C5             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 1     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.SH_C6          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 1        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.C6             ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 1     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.SH_C7          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 1        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.REG_A          ; 0                 ; 0          ; 0          ; 0     ; 0       ; 1        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.VOTE           ; 0                 ; 0          ; 0          ; 0     ; 1       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.LP             ; 0                 ; 0          ; 0          ; 1     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.WAIT_ST        ; 0                 ; 0          ; 1          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.DONE_ST        ; 0                 ; 1          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
+; PS.ERROR_CHECK_ST ; 1                 ; 0          ; 0          ; 0     ; 0       ; 0        ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0     ; 0        ; 0           ; 0     ; 0       ; 1       ;
++-------------------+-------------------+------------+------------+-------+---------+----------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------+----------+-------------+-------+---------+---------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |UART|tx:trasm|FSM_tx:CU|PS                                                                                                                                                                                                         ;
++-------------------+-------------------+---------------+-------+-------+-------+-------+-------+-------+-------+-------+---------+------------+--------+--------+--------+--------+--------+--------+--------+--------+----------+---------+---------+
+; Name              ; PS.ERROR_CHECK_ST ; PS.DONE_STATE ; PS.D7 ; PS.D6 ; PS.D5 ; PS.D4 ; PS.D3 ; PS.D2 ; PS.D1 ; PS.D0 ; PS.STOP ; PS.SH_STOP ; PS.SH7 ; PS.SH6 ; PS.SH5 ; PS.SH4 ; PS.SH3 ; PS.SH2 ; PS.SH1 ; PS.SH0 ; PS.START ; PS.LOAD ; PS.IDLE ;
++-------------------+-------------------+---------------+-------+-------+-------+-------+-------+-------+-------+-------+---------+------------+--------+--------+--------+--------+--------+--------+--------+--------+----------+---------+---------+
+; PS.IDLE           ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 0       ;
+; PS.LOAD           ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 1       ; 1       ;
+; PS.START          ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1        ; 0       ; 1       ;
+; PS.SH0            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0        ; 0       ; 1       ;
+; PS.SH1            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0        ; 0       ; 1       ;
+; PS.SH2            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.SH3            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.SH4            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.SH5            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.SH6            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.SH7            ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 1      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.SH_STOP        ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.STOP           ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D0             ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D1             ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D2             ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D3             ; 0                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D4             ; 0                 ; 0             ; 0     ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D5             ; 0                 ; 0             ; 0     ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D6             ; 0                 ; 0             ; 0     ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.D7             ; 0                 ; 0             ; 1     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.DONE_STATE     ; 0                 ; 1             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
+; PS.ERROR_CHECK_ST ; 1                 ; 0             ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0          ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ; 0        ; 0       ; 1       ;
++-------------------+-------------------+---------------+-------+-------+-------+-------+-------+-------+-------+-------+---------+------------+--------+--------+--------+--------+--------+--------+--------+--------+----------+---------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; ATN:ATN_B|FSM_ATN:CU|ATN                            ; ATN:ATN_B|FSM_ATN:CU|PS.POLLING    ; yes                    ;
+; BUS_INT:bus_i|FSM_BUS:CU|NS.MUX_ST_87               ; BUS_INT:bus_i|FSM_BUS:CU|Selector2 ; yes                    ;
+; ATN:ATN_B|FSM_ATN:CU|NS.ATNCK_ST_118                ; ATN:ATN_B|FSM_ATN:CU|Selector3     ; yes                    ;
+; ATN:ATN_B|FSM_ATN:CU|NS.POLLING_146                 ; ATN:ATN_B|FSM_ATN:CU|Selector3     ; yes                    ;
+; BUS_INT:bus_i|FSM_BUS:CU|NS.WAIT_ST_114             ; BUS_INT:bus_i|FSM_BUS:CU|Selector2 ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH0_962                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH1_943                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH2_924                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH3_905                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH4_886                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH5_867                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH6_848                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH7_829                       ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.SH_STOP_810                   ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.LOAD_1000                     ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.DONE_ST_786                     ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; BUS_INT:bus_i|FSM_BUS:CU|NS.READ_ST_103             ; GND                                ; yes                    ;
+; ATN:ATN_B|FSM_ATN:CU|NS.ERROR_ST_104                ; ATN:ATN_B|FSM_ATN:CU|Selector3     ; yes                    ;
+; ATN:ATN_B|FSM_ATN:CU|NS.ATN_ST_132                  ; ATN:ATN_B|FSM_ATN:CU|Selector3     ; yes                    ;
+; tx:trasm|FSM_tx:CU|CE_WD                            ; tx:trasm|FSM_tx:CU|WideOr13        ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.ERROR_CHECK_ST_601            ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; RX:rix|FSM_RX:CU|CE_WD                              ; RX:rix|FSM_RX:CU|WideOr14          ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.ERROR_CHECK_ST_767              ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; BUS_INT:bus_i|FSM_BUS:CU|NS.WRITE_ST_95             ; GND                                ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.LP_824                          ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.START_981                     ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.STOP_791                      ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D7_639                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D6_658                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D5_677                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D4_696                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D3_715                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D2_734                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D1_753                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.D0_772                        ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.IDLE_1019                     ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.WAIT_ST_805                     ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.C6_900                          ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.C5_938                          ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.C4_976                          ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.C3_1014                         ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.C2_1052                         ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.C1_1090                         ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.C0_1128                         ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.START_ST_1166                   ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.NC_1185                         ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.IDLE_1223                       ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.VOTE_843                        ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; tx:trasm|FSM_tx:CU|NS.DONE_STATE_620                ; tx:trasm|FSM_tx:CU|Selector35      ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_X_1204                       ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C0_1147                      ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C1_1109                      ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C2_1071                      ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C3_1033                      ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C4_995                       ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C5_957                       ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C6_919                       ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.SH_C7_881                       ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; RX:rix|FSM_RX:CU|NS.REG_A_862                       ; RX:rix|FSM_RX:CU|Selector2         ; yes                    ;
+; Number of user-specified and inferred latches = 59  ;                                    ;                        ;
++-----------------------------------------------------+------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 170   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 51    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 97    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; tx:trasm|Cnt_TX_CONTROL:WD_tx|TC_tx_ctrln ; 2       ;
+; RX:rix|Cnt_RX_CONTROL:WD|TC_rx_ctrln      ; 2       ;
+; Total number of inverted registers = 2    ;         ;
++-------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                   ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |UART|tx:trasm|shift_register_tx:S_REG|SD[2] ;                            ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; |UART|BUS_INT:bus_i|MUX_OUT:MUX|Mux6         ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+----------------------------------------------+----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+    Info: Processing started: Tue Jan 19 22:49:47 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART_2 -c UART_2
+Warning: Parallel compilation is not licensed and has been disabled
+Info: Found 2 design units, including 1 entities, in source file uart_tb.vhd
+    Info: Found design unit 1: UART_tb-behav
+    Info: Found entity 1: UART_tb
+Info: Found 2 design units, including 1 entities, in source file uart.vhd
+    Info: Found design unit 1: UART-behav
+    Info: Found entity 1: UART
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/reg_tx.vhd
+    Info: Found design unit 1: REG_TX-behav
+    Info: Found entity 1: REG_TX
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/reg_status.vhd
+    Info: Found design unit 1: REG_STATUS-behav
+    Info: Found entity 1: REG_STATUS
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/reg_rx.vhd
+    Info: Found design unit 1: REG_RX-behav
+    Info: Found entity 1: REG_RX
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/reg_gate.vhd
+    Info: Found design unit 1: reg_gate-behav
+    Info: Found entity 1: REG_GATE
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/reg_control.vhd
+    Info: Found design unit 1: REG_CONTROL-behav
+    Info: Found entity 1: REG_CONTROL
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/mux_out.vhd
+    Info: Found design unit 1: MUX_OUT-behav
+    Info: Found entity 1: MUX_OUT
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/fsm_bus.vhd
+    Info: Found design unit 1: FSM_BUS-behav
+    Info: Found entity 1: FSM_BUS
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/bus_int.vhd
+    Info: Found design unit 1: BUS_INT-behav
+    Info: Found entity 1: BUS_INT
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/bus_2/add.vhd
+    Info: Found design unit 1: ADD-behav
+    Info: Found entity 1: ADD
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/atn/reg7.vhd
+    Info: Found design unit 1: REG7-behav
+    Info: Found entity 1: REG7
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/atn/reg3_atn.vhd
+    Info: Found design unit 1: REG3_ATN-behav
+    Info: Found entity 1: REG3_ATN
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/atn/or_gate.vhd
+    Info: Found design unit 1: OR_GATE-behav
+    Info: Found entity 1: OR_GATE
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/atn/fsm_atn.vhd
+    Info: Found design unit 1: FSM_ATN-behav
+    Info: Found entity 1: FSM_ATN
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/atn/atn.vhd
+    Info: Found design unit 1: ATN-BEHAV
+    Info: Found entity 1: ATN
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/tx/tx.vhd
+    Info: Found design unit 1: tx-behav
+    Info: Found entity 1: tx
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/tx/shift_register_tx.vhd
+    Info: Found design unit 1: shift_register_tx-behav
+    Info: Found entity 1: shift_register_tx
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/tx/fsm_tx.vhd
+    Info: Found design unit 1: FSM_tx-behav
+    Info: Found entity 1: FSM_tx
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/tx/flipflop.vhd
+    Info: Found design unit 1: FlipFlop-behav
+    Info: Found entity 1: FlipFlop
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/tx/counter_tx.vhd
+    Info: Found design unit 1: Counter_tx-behav
+    Info: Found entity 1: Counter_tx
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/voter.vhd
+    Info: Found design unit 1: VOTER-behav
+    Info: Found entity 1: VOTER
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/start_g.vhd
+    Info: Found design unit 1: start_g-behav
+    Info: Found entity 1: start_g
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/shift_register.vhd
+    Info: Found design unit 1: shift_register-behav
+    Info: Found entity 1: shift_register
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/rx.vhd
+    Info: Found design unit 1: RX-behav
+    Info: Found entity 1: RX
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/reg.vhd
+    Info: Found design unit 1: REG-behav
+    Info: Found entity 1: REG
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/fsm_rx.vhd
+    Info: Found design unit 1: FSM_RX-behav
+    Info: Found entity 1: FSM_RX
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/cnt_c.vhd
+    Info: Found design unit 1: Cnt_c-behav
+    Info: Found entity 1: Cnt_c
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/cnt_0.vhd
+    Info: Found design unit 1: Cnt_0-behav
+    Info: Found entity 1: Cnt_0
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/tx/cnt_tx_control.vhd
+    Info: Found design unit 1: Cnt_TX_CONTROL-behav
+    Info: Found entity 1: Cnt_TX_CONTROL
+Info: Found 2 design units, including 1 entities, in source file /users/utente.000/desktop/progetti sdi/rx/tc_rx_ctrln.vhd
+    Info: Found design unit 1: Cnt_RX_CONTROL-behav
+    Info: Found entity 1: Cnt_RX_CONTROL
+Info: Elaborating entity "UART" for the top level hierarchy
+Info: Elaborating entity "tx" for hierarchy "tx:trasm"
+Info: Elaborating entity "Cnt_TX_CONTROL" for hierarchy "tx:trasm|Cnt_TX_CONTROL:WD_tx"
+Info: Elaborating entity "shift_register_tx" for hierarchy "tx:trasm|shift_register_tx:S_REG"
+Info: Elaborating entity "FlipFlop" for hierarchy "tx:trasm|FlipFlop:FF"
+Info: Elaborating entity "Counter_tx" for hierarchy "tx:trasm|Counter_tx:CNT"
+Info: Elaborating entity "FSM_tx" for hierarchy "tx:trasm|FSM_tx:CU"
+Warning (10631): VHDL Process Statement warning at FSM_tx.vhd(20): inferring latch(es) for signal or variable "NS", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at FSM_tx.vhd(73): inferring latch(es) for signal or variable "CE_WD", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "CE_WD" at FSM_tx.vhd(73)
+Info (10041): Inferred latch for "NS.ERROR_CHECK_ST" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.DONE_STATE" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D7" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D6" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D5" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D4" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D3" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D2" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D1" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.D0" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.STOP" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH_STOP" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH7" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH6" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH5" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH4" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH3" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH2" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH1" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.SH0" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.START" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.LOAD" at FSM_tx.vhd(20)
+Info (10041): Inferred latch for "NS.IDLE" at FSM_tx.vhd(20)
+Info: Elaborating entity "RX" for hierarchy "RX:rix"
+Info: Elaborating entity "Cnt_RX_CONTROL" for hierarchy "RX:rix|Cnt_RX_CONTROL:WD"
+Info: Elaborating entity "FSM_RX" for hierarchy "RX:rix|FSM_RX:CU"
+Warning (10631): VHDL Process Statement warning at FSM_RX.vhd(19): inferring latch(es) for signal or variable "NS", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at FSM_RX.vhd(79): inferring latch(es) for signal or variable "CE_WD", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "CE_WD" at FSM_RX.vhd(79)
+Info (10041): Inferred latch for "NS.ERROR_CHECK_ST" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.DONE_ST" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.WAIT_ST" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.LP" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.VOTE" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.REG_A" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C7" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.C6" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C6" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.C5" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C5" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.C4" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C4" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.C3" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C3" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.C2" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C2" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.C1" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C1" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.C0" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_C0" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.START_ST" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.NC" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.SH_X" at FSM_RX.vhd(19)
+Info (10041): Inferred latch for "NS.IDLE" at FSM_RX.vhd(19)
+Info: Elaborating entity "shift_register" for hierarchy "RX:rix|shift_register:SHC"
+Info: Elaborating entity "start_g" for hierarchy "RX:rix|start_g:strt"
+Info: Elaborating entity "REG" for hierarchy "RX:rix|REG:regA0"
+Info: Elaborating entity "VOTER" for hierarchy "RX:rix|VOTER:vot"
+Info: Elaborating entity "Cnt_c" for hierarchy "RX:rix|Cnt_c:counter_c"
+Info: Elaborating entity "Cnt_0" for hierarchy "RX:rix|Cnt_0:counter_0"
+Info: Elaborating entity "BUS_INT" for hierarchy "BUS_INT:bus_i"
+Info: Elaborating entity "REG_GATE" for hierarchy "BUS_INT:bus_i|REG_GATE:gate"
+Info: Elaborating entity "REG_TX" for hierarchy "BUS_INT:bus_i|REG_TX:R_TX"
+Info: Elaborating entity "REG_RX" for hierarchy "BUS_INT:bus_i|REG_RX:R_RX"
+Info: Elaborating entity "REG_CONTROL" for hierarchy "BUS_INT:bus_i|REG_CONTROL:R_C"
+Info: Elaborating entity "REG_STATUS" for hierarchy "BUS_INT:bus_i|REG_STATUS:R_S"
+Info: Elaborating entity "ADD" for hierarchy "BUS_INT:bus_i|ADD:address_mux"
+Info: Elaborating entity "MUX_OUT" for hierarchy "BUS_INT:bus_i|MUX_OUT:MUX"
+Info: Elaborating entity "FSM_BUS" for hierarchy "BUS_INT:bus_i|FSM_BUS:CU"
+Warning (10631): VHDL Process Statement warning at FSM_bus.vhd(19): inferring latch(es) for signal or variable "NS", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "NS.MUX_ST" at FSM_bus.vhd(19)
+Info (10041): Inferred latch for "NS.WRITE_ST" at FSM_bus.vhd(19)
+Info (10041): Inferred latch for "NS.READ_ST" at FSM_bus.vhd(19)
+Info (10041): Inferred latch for "NS.WAIT_ST" at FSM_bus.vhd(19)
+Info: Elaborating entity "ATN" for hierarchy "ATN:ATN_B"
+Info: Elaborating entity "REG7" for hierarchy "ATN:ATN_B|REG7:reg_7"
+Info: Elaborating entity "OR_GATE" for hierarchy "ATN:ATN_B|OR_GATE:OR_PORT"
+Info: Elaborating entity "FSM_ATN" for hierarchy "ATN:ATN_B|FSM_ATN:CU"
+Warning (10492): VHDL Process Statement warning at FSM_ATN.vhd(27): signal "ERROR_CHECK" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at FSM_ATN.vhd(19): inferring latch(es) for signal or variable "NS", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at FSM_ATN.vhd(47): inferring latch(es) for signal or variable "ATN", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "ATN" at FSM_ATN.vhd(47)
+Info (10041): Inferred latch for "NS.ERROR_ST" at FSM_ATN.vhd(19)
+Info (10041): Inferred latch for "NS.ATNCK_ST" at FSM_ATN.vhd(19)
+Info (10041): Inferred latch for "NS.ATN_ST" at FSM_ATN.vhd(19)
+Info (10041): Inferred latch for "NS.POLLING" at FSM_ATN.vhd(19)
+Warning: Latch ATN:ATN_B|FSM_ATN:CU|NS.ATNCK_ST_118 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ATN:ATN_B|FSM_ATN:CU|PS.ERROR_ST
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH0_962 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.START
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH1_943 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D0
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH2_924 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D1
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH3_905 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D2
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH4_886 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D3
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH5_867 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D4
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH6_848 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D5
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH7_829 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D6
+Warning: Latch tx:trasm|FSM_tx:CU|NS.SH_STOP_810 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.D7
+Warning: Latch tx:trasm|FSM_tx:CU|NS.LOAD_1000 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.IDLE
+Warning: Latch ATN:ATN_B|FSM_ATN:CU|NS.ERROR_ST_104 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ATN:ATN_B|new_error_cks
+Warning: Latch ATN:ATN_B|FSM_ATN:CU|NS.ATN_ST_132 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ATNCK
+Warning: Latch tx:trasm|FSM_tx:CU|CE_WD has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.LOAD
+Warning: Latch RX:rix|FSM_RX:CU|CE_WD has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.ERROR_CHECK_ST
+Warning: Latch tx:trasm|FSM_tx:CU|NS.DONE_STATE_620 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal tx:trasm|FSM_tx:CU|PS.STOP
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_X_1204 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.IDLE
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C0_1147 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.START_ST
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C1_1109 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.C0
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C2_1071 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.C1
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C3_1033 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.C2
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C4_995 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.C3
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C5_957 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.C4
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C6_919 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.C5
+Warning: Latch RX:rix|FSM_RX:CU|NS.SH_C7_881 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal RX:rix|FSM_RX:CU|PS.C6
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Info: Implemented 337 device resources after synthesis - the final resource count might be different
+    Info: Implemented 16 input pins
+    Info: Implemented 10 output pins
+    Info: Implemented 311 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 59 warnings
+    Info: Peak virtual memory: 307 megabytes
+    Info: Processing ended: Tue Jan 19 22:49:54 2021
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:05
+
+

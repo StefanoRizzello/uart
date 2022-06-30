@@ -1,0 +1,17 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all; 
+
+ENTITY FSM_ATN IS
+
+port ( ATN_req,UPDATE_req: IN std_logic;
+       ATN, en_reg : BUFFER std_logic);
+end FSM_ATN;
+
+
+ARCHITECTURE behav OF FSM_ATN IS 
+
+TYPE STATE_TYPE IS ( );
+SIGNAL PS, NS: STATE_TYPE;
+
+BEGIN

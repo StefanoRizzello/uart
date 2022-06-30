@@ -1,0 +1,267 @@
+Quartus II
+Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+14
+1083
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+FSM_RX
+# storage
+db|FSM_RX.(0).cnf
+db|FSM_RX.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+fsm_rx.vhd
+4f978a9df6eb6d8e9673773ca5d0db74
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+FSM_RX:CU
+}
+# macro_sequence
+
+# end
+# entity
+VOTER
+# storage
+db|FSM_RX.(2).cnf
+db|FSM_RX.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+voter.vhd
+18d2b7dce7b14c696236f73ad863bf6
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+VOTER:vot
+}
+# macro_sequence
+
+# end
+# entity
+RX
+# storage
+db|FSM_RX.(1).cnf
+db|FSM_RX.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+rx.vhd
+3544d5051716a3d7136a29273555f6
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+shift_register
+# storage
+db|FSM_RX.(3).cnf
+db|FSM_RX.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+shift_register.vhd
+4b4ac0207a98d5bfe43a5e7407e9bae
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+shift_register:SHC
+shift_register:SHPIN
+}
+# macro_sequence
+
+# end
+# entity
+start_g
+# storage
+db|FSM_RX.(4).cnf
+db|FSM_RX.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+start_g.vhd
+ceb3d434d9fb6ec760e69fd2586eb333
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+start_g:strt
+}
+# macro_sequence
+
+# end
+# entity
+REG
+# storage
+db|FSM_RX.(5).cnf
+db|FSM_RX.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg.vhd
+54c096c41498cdf44c14d95288bf4b9
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+REG:regA0
+REG:regA1
+REG:regA2
+REG:regVot
+}
+# macro_sequence
+
+# end
+# entity
+Cnt_c
+# storage
+db|FSM_RX.(6).cnf
+db|FSM_RX.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+cnt_c.vhd
+ab11446e7d39c86e184dc67c822fb4df
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Cnt_c:counter_c
+}
+# macro_sequence
+
+# end
+# entity
+Cnt_0
+# storage
+db|FSM_RX.(7).cnf
+db|FSM_RX.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+cnt_0.vhd
+49c95dcd5da37d2442852366f95bfdb
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Cnt_0:counter_0
+}
+# macro_sequence
+
+# end
+# complete
+

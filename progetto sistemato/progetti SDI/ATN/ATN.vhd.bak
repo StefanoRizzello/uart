@@ -1,0 +1,55 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all; 
+
+ENTITY ATN IS
+
+port ( DONE_T, DONE_R, NEW_TX, READ_RX,CLK,ATNCK: IN std_logic;
+       RX: IN std_logic_vector(7 downto 0);
+		 RX_OUT: OUT std_logic_vector(7 downto 0);
+		 STATUS_OUT : OUT std_logic_vector (2 downto 0);
+       ATN_req: OUT std_logic);
+end ATN 
+
+ARCHITECTURE BEHAV OF ATN IS 
+
+COMPONENT OR_GATE IS
+
+port ( DONE_T, DONE_R, NEW_TX, READ_RX: IN std_logic;
+       ATN_req, en_reg_status : OUT std_logic);
+end COMPONENT;
+
+
+COMPONENT REG7 IS
+
+PORT ( CLK, EN_REG: IN std_logic;
+       D: IN std_logic_vector(7 downto 0);
+       Q: OUT std_logic_vector(7 downto 0));
+END COMPONENT;
+
+
+COMPONENT FSM_ATN IS
+
+port ( ATN_req,ATNCK,CLK: IN std_logic;
+       ATN: BUFFER std_logic);
+end COMPONENT;
+
+COMPONENT REG3_ATN IS
+
+PORT ( CLK, EN_REG: IN std_logic;
+       D: IN std_logic_vector(1 downto 0);
+       Q: OUT std_logic_vector(2 downto 0));
+END COMPONENT;
+
+
+SIGNAL en_reg_status_s,ATN_req_S : std_logic;
+
+BEGIN
+
+reg_7: REG7 PORT MAP ( CLK=>CLK, EN_REG => DONE_R, D=>RX, Q=>RX_OUT);
+reg_status: REG3_ATN PORT MAP (CLK=>CLK, EN_REG => en_reg_status_s, D(0)=> DONE_T, D(1) => DONE_R, Q=>STATUS_OUT);
+OR_PORT: OR_GATE PORT MAP ( DONE_T => DONE_T, DONE_R= DONE_R, NEW_TX => NEW_TX, READ_RX=> READ_RX,
+									 ATN_req =>ATN_req_S, en_reg_status =>en_reg_status_s);
+CU: FSM_ATN PORT MAP (	ATN_req=> ATN_req_S,ATNCK=> ATNCK,CLK=> CLK, ATN=>ATN);	
+
+END BEHAV;							 

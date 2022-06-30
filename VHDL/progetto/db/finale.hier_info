@@ -1,0 +1,976 @@
+|UART
+TX_p <= tx:trasm.TX
+ATN_p <= ATN:ATN_B.ATN
+RX_p => RX:rix.DATA_IN
+CS => BUS_INT:bus_i.CS
+RWn => BUS_INT:bus_i.RWn
+CLK => tx:trasm.CLK
+CLK => RX:rix.CLK
+CLK => BUS_INT:bus_i.CLK
+CLK => ATN:ATN_B.CLK
+ATNCK => ATN:ATN_B.ATNCK
+D_IN[0] => BUS_INT:bus_i.D_IN[0]
+D_IN[1] => BUS_INT:bus_i.D_IN[1]
+D_IN[2] => BUS_INT:bus_i.D_IN[2]
+D_IN[3] => BUS_INT:bus_i.D_IN[3]
+D_IN[4] => BUS_INT:bus_i.D_IN[4]
+D_IN[5] => BUS_INT:bus_i.D_IN[5]
+D_IN[6] => BUS_INT:bus_i.D_IN[6]
+D_IN[7] => BUS_INT:bus_i.D_IN[7]
+D_out[0] <= BUS_INT:bus_i.D_OUT[0]
+D_out[1] <= BUS_INT:bus_i.D_OUT[1]
+D_out[2] <= BUS_INT:bus_i.D_OUT[2]
+D_out[3] <= BUS_INT:bus_i.D_OUT[3]
+D_out[4] <= BUS_INT:bus_i.D_OUT[4]
+D_out[5] <= BUS_INT:bus_i.D_OUT[5]
+D_out[6] <= BUS_INT:bus_i.D_OUT[6]
+D_out[7] <= BUS_INT:bus_i.D_OUT[7]
+A[0] => BUS_INT:bus_i.A[0]
+A[1] => BUS_INT:bus_i.A[1]
+A[2] => BUS_INT:bus_i.A[2]
+
+
+|UART|tx:trasm
+PIN_T[0] => shift_register_tx:S_REG.Pin_Ts[0]
+PIN_T[1] => shift_register_tx:S_REG.Pin_Ts[1]
+PIN_T[2] => shift_register_tx:S_REG.Pin_Ts[2]
+PIN_T[3] => shift_register_tx:S_REG.Pin_Ts[3]
+PIN_T[4] => shift_register_tx:S_REG.Pin_Ts[4]
+PIN_T[5] => shift_register_tx:S_REG.Pin_Ts[5]
+PIN_T[6] => shift_register_tx:S_REG.Pin_Ts[6]
+PIN_T[7] => shift_register_tx:S_REG.Pin_Ts[7]
+TX_EN => FSM_tx:CU.TX_EN
+CLK => shift_register_tx:S_REG.CLK
+CLK => FlipFlop:FF.CLK
+CLK => Counter_tx:CNT.CLK
+CLK => FSM_tx:CU.CLK
+DONE <= FSM_tx:CU.DONE
+TX <= FlipFlop:FF.Q
+
+
+|UART|tx:trasm|shift_register_tx:S_REG
+Pin_Ts[0] => SD.DATAB
+Pin_Ts[1] => SD.DATAB
+Pin_Ts[2] => SD.DATAB
+Pin_Ts[3] => SD.DATAB
+Pin_Ts[4] => SD.DATAB
+Pin_Ts[5] => SD.DATAB
+Pin_Ts[6] => SD.DATAB
+Pin_Ts[7] => SD.DATAB
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+Load => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+SH => SD.OUTPUTSELECT
+CLK => SD[0].CLK
+CLK => SD[1].CLK
+CLK => SD[2].CLK
+CLK => SD[3].CLK
+CLK => SD[4].CLK
+CLK => SD[5].CLK
+CLK => SD[6].CLK
+CLK => SD[7].CLK
+CLK => SD[8].CLK
+CLK => SD[9].CLK
+S_out <= SD[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|tx:trasm|FlipFlop:FF
+D => Q~reg0.DATAIN
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|tx:trasm|Counter_tx:CNT
+CLR => K[0].ACLR
+CLR => K[1].ACLR
+CLR => K[2].ACLR
+CLR => K[3].ACLR
+CLR => K[4].ACLR
+CLR => K[5].ACLR
+CLR => K[6].ACLR
+CLR => K[7].ACLR
+CLR => TC~reg0.ACLR
+CLK => K[0].CLK
+CLK => K[1].CLK
+CLK => K[2].CLK
+CLK => K[3].CLK
+CLK => K[4].CLK
+CLK => K[5].CLK
+CLK => K[6].CLK
+CLK => K[7].CLK
+CLK => TC~reg0.CLK
+CE => K[0].ENA
+CE => TC~reg0.ENA
+CE => K[7].ENA
+CE => K[6].ENA
+CE => K[5].ENA
+CE => K[4].ENA
+CE => K[3].ENA
+CE => K[2].ENA
+CE => K[1].ENA
+TC <= TC~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|tx:trasm|FSM_tx:CU
+CLK => PS~1.DATAIN
+TC => Selector23.IN2
+TC => Selector23.IN3
+TC => Selector23.IN4
+TC => Selector23.IN5
+TC => Selector23.IN6
+TC => Selector23.IN7
+TC => Selector23.IN8
+TC => Selector23.IN9
+TC => Selector23.IN10
+TC => Selector23.IN11
+TC => Selector22.IN3
+TC => Selector22.IN4
+TC => Selector22.IN5
+TC => Selector22.IN6
+TC => Selector22.IN7
+TC => Selector22.IN8
+TC => Selector22.IN9
+TC => Selector22.IN10
+TC => Selector22.IN11
+TC => Selector22.IN12
+TC => Selector0.IN3
+TC => Selector0.IN4
+TC => Selector0.IN5
+TC => Selector0.IN6
+TC => Selector0.IN7
+TC => Selector0.IN8
+TC => Selector0.IN9
+TC => Selector0.IN10
+TC => Selector0.IN11
+TC => Selector0.IN12
+TC => Selector25.IN3
+TC => Selector25.IN4
+TC => Selector25.IN5
+TC => Selector25.IN6
+TC => Selector25.IN7
+TC => Selector25.IN8
+TC => Selector25.IN9
+TC => Selector25.IN10
+TC => Selector25.IN11
+TC => Selector25.IN12
+TC => Selector26.IN3
+TC => Selector26.IN4
+TC => Selector26.IN5
+TC => Selector26.IN6
+TC => Selector26.IN7
+TC => Selector26.IN8
+TC => Selector26.IN9
+TC => Selector26.IN10
+TC => Selector26.IN11
+TC => Selector26.IN12
+TC => Selector27.IN3
+TC => Selector27.IN4
+TC => Selector27.IN5
+TC => Selector27.IN6
+TC => Selector27.IN7
+TC => Selector27.IN8
+TC => Selector27.IN9
+TC => Selector27.IN10
+TC => Selector27.IN11
+TC => Selector27.IN12
+TC => Selector28.IN3
+TC => Selector28.IN4
+TC => Selector28.IN5
+TC => Selector28.IN6
+TC => Selector28.IN7
+TC => Selector28.IN8
+TC => Selector28.IN9
+TC => Selector28.IN10
+TC => Selector28.IN11
+TC => Selector28.IN12
+TC => Selector29.IN3
+TC => Selector29.IN4
+TC => Selector29.IN5
+TC => Selector29.IN6
+TC => Selector29.IN7
+TC => Selector29.IN8
+TC => Selector29.IN9
+TC => Selector29.IN10
+TC => Selector29.IN11
+TC => Selector29.IN12
+TC => Selector30.IN3
+TC => Selector30.IN4
+TC => Selector30.IN5
+TC => Selector30.IN6
+TC => Selector30.IN7
+TC => Selector30.IN8
+TC => Selector30.IN9
+TC => Selector30.IN10
+TC => Selector30.IN11
+TC => Selector30.IN12
+TC => Selector31.IN3
+TC => Selector31.IN4
+TC => Selector31.IN5
+TC => Selector31.IN6
+TC => Selector31.IN7
+TC => Selector31.IN8
+TC => Selector31.IN9
+TC => Selector31.IN10
+TC => Selector31.IN11
+TC => Selector31.IN12
+TC => Selector32.IN3
+TC => Selector32.IN4
+TC => Selector32.IN5
+TC => Selector32.IN6
+TC => Selector32.IN7
+TC => Selector32.IN8
+TC => Selector32.IN9
+TC => Selector32.IN10
+TC => Selector32.IN11
+TC => Selector32.IN12
+TC => Selector33.IN3
+TC => Selector33.IN4
+TC => Selector33.IN5
+TC => Selector33.IN6
+TC => Selector33.IN7
+TC => Selector33.IN8
+TC => Selector33.IN9
+TC => Selector33.IN10
+TC => Selector33.IN11
+TC => Selector33.IN12
+TX_EN => Selector23.IN12
+TX_EN => Selector22.IN13
+TX_EN => Selector0.IN13
+TX_EN => Selector25.IN13
+TX_EN => Selector26.IN13
+TX_EN => Selector27.IN13
+TX_EN => Selector28.IN13
+TX_EN => Selector29.IN13
+TX_EN => Selector30.IN13
+TX_EN => Selector31.IN13
+TX_EN => Selector32.IN13
+TX_EN => Selector33.IN13
+DONE <= DONE.DB_MAX_OUTPUT_PORT_TYPE
+Load_c <= Load_c.DB_MAX_OUTPUT_PORT_TYPE
+SH <= WideOr14.DB_MAX_OUTPUT_PORT_TYPE
+CE <= WideOr13.DB_MAX_OUTPUT_PORT_TYPE
+CLR <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix
+CLK => FSM_RX:CU.clk
+CLK => shift_register:SHC.CLK
+CLK => REG:regA0.CLK
+CLK => REG:regA1.CLK
+CLK => REG:regA2.CLK
+CLK => REG:regVot.CLK
+CLK => shift_register:SHPIN.CLK
+CLK => Cnt_c:counter_c.CLK
+CLK => Cnt_0:counter_0.CLK
+DATA_IN => shift_register:SHC.RxD
+RX_EN => FSM_RX:CU.rx_en
+DONE <= FSM_RX:CU.DONE
+PIN_8[0] <= shift_register:SHPIN.out_0
+PIN_8[1] <= shift_register:SHPIN.out_1
+PIN_8[2] <= shift_register:SHPIN.out_2
+PIN_8[3] <= shift_register:SHPIN.out_3
+PIN_8[4] <= shift_register:SHPIN.out_4
+PIN_8[5] <= shift_register:SHPIN.out_5
+PIN_8[6] <= shift_register:SHPIN.out_6
+PIN_8[7] <= shift_register:SHPIN.out_7
+
+
+|UART|RX:rix|FSM_RX:CU
+clk => PS~1.DATAIN
+start => Selector9.IN0
+start => Selector8.IN0
+tc1 => Selector5.IN5
+tc1 => Selector5.IN6
+tc1 => Selector5.IN7
+tc1 => Selector5.IN8
+tc1 => Selector5.IN9
+tc1 => Selector5.IN10
+tc1 => Selector5.IN11
+tc1 => Selector5.IN12
+tc1 => Selector4.IN5
+tc1 => Selector4.IN6
+tc1 => Selector4.IN7
+tc1 => Selector4.IN8
+tc1 => Selector4.IN9
+tc1 => Selector4.IN10
+tc1 => Selector4.IN11
+tc1 => Selector4.IN12
+tc1 => Selector3.IN5
+tc1 => Selector3.IN6
+tc1 => Selector3.IN7
+tc1 => Selector3.IN8
+tc1 => Selector3.IN9
+tc1 => Selector3.IN10
+tc1 => Selector3.IN11
+tc1 => Selector3.IN12
+tc1 => Selector2.IN5
+tc1 => Selector2.IN6
+tc1 => Selector2.IN7
+tc1 => Selector2.IN8
+tc1 => Selector2.IN9
+tc1 => Selector2.IN10
+tc1 => Selector2.IN11
+tc1 => Selector2.IN12
+tc1 => Selector1.IN4
+tc1 => Selector1.IN5
+tc1 => Selector1.IN6
+tc1 => Selector1.IN7
+tc1 => Selector1.IN8
+tc1 => Selector1.IN9
+tc1 => Selector1.IN10
+tc1 => Selector1.IN11
+tc1 => Selector0.IN5
+tc1 => Selector0.IN6
+tc1 => Selector0.IN7
+tc1 => Selector0.IN8
+tc1 => Selector0.IN9
+tc1 => Selector0.IN10
+tc1 => Selector0.IN11
+tc1 => Selector0.IN12
+tc1 => Selector34.IN5
+tc1 => Selector34.IN6
+tc1 => Selector34.IN7
+tc1 => Selector34.IN8
+tc1 => Selector34.IN9
+tc1 => Selector34.IN10
+tc1 => Selector34.IN11
+tc1 => Selector34.IN12
+tc1 => Selector33.IN5
+tc1 => Selector33.IN6
+tc1 => Selector33.IN7
+tc1 => Selector33.IN8
+tc1 => Selector33.IN9
+tc1 => Selector33.IN10
+tc1 => Selector33.IN11
+tc1 => Selector33.IN12
+tc1 => Selector32.IN5
+tc1 => Selector32.IN6
+tc1 => Selector32.IN7
+tc1 => Selector32.IN8
+tc1 => Selector32.IN9
+tc1 => Selector32.IN10
+tc1 => Selector32.IN11
+tc1 => Selector32.IN12
+tc1 => Selector31.IN5
+tc1 => Selector31.IN6
+tc1 => Selector31.IN7
+tc1 => Selector31.IN8
+tc1 => Selector31.IN9
+tc1 => Selector31.IN10
+tc1 => Selector31.IN11
+tc1 => Selector31.IN12
+tc1 => Selector30.IN5
+tc1 => Selector30.IN6
+tc1 => Selector30.IN7
+tc1 => Selector30.IN8
+tc1 => Selector30.IN9
+tc1 => Selector30.IN10
+tc1 => Selector30.IN11
+tc1 => Selector30.IN12
+tc1 => Selector35.IN5
+tc1 => Selector35.IN6
+tc1 => Selector35.IN7
+tc1 => Selector35.IN8
+tc1 => Selector35.IN9
+tc1 => Selector35.IN10
+tc1 => Selector35.IN11
+tc1 => Selector35.IN12
+tc2 => Selector5.IN13
+tc2 => Selector4.IN13
+tc2 => Selector3.IN13
+tc2 => Selector2.IN13
+tc2 => Selector1.IN12
+tc2 => Selector0.IN13
+tc2 => Selector34.IN13
+tc2 => Selector33.IN13
+tc2 => Selector32.IN13
+tc2 => Selector31.IN13
+tc2 => Selector30.IN13
+tc2 => Selector35.IN13
+tc3 => Selector5.IN14
+tc3 => Selector4.IN14
+tc3 => Selector3.IN14
+tc3 => Selector2.IN14
+tc3 => Selector1.IN13
+tc3 => Selector0.IN14
+tc3 => Selector34.IN14
+tc3 => Selector33.IN14
+tc3 => Selector32.IN14
+tc3 => Selector31.IN14
+tc3 => Selector30.IN14
+tc3 => Selector35.IN14
+tc0 => Selector29.IN1
+tc0 => Selector28.IN1
+rx_en => Selector5.IN15
+rx_en => Selector4.IN15
+rx_en => Selector3.IN15
+rx_en => Selector2.IN15
+rx_en => Selector1.IN14
+rx_en => Selector0.IN15
+rx_en => Selector34.IN15
+rx_en => Selector33.IN15
+rx_en => Selector32.IN15
+rx_en => Selector31.IN15
+rx_en => Selector30.IN15
+rx_en => Selector35.IN15
+sh_c <= WideOr13.DB_MAX_OUTPUT_PORT_TYPE
+clr <= WideOr14.DB_MAX_OUTPUT_PORT_TYPE
+en_c <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
+en_0 <= en_0.DB_MAX_OUTPUT_PORT_TYPE
+clr_0 <= clr_0.DB_MAX_OUTPUT_PORT_TYPE
+en_reg_a <= en_reg_a.DB_MAX_OUTPUT_PORT_TYPE
+en_rv <= en_rv.DB_MAX_OUTPUT_PORT_TYPE
+ld_pin <= ld_pin.DB_MAX_OUTPUT_PORT_TYPE
+DONE <= DONE.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|shift_register:SHC
+RxD => SD[7].DATAIN
+CLK => SD[0].CLK
+CLK => SD[1].CLK
+CLK => SD[2].CLK
+CLK => SD[3].CLK
+CLK => SD[4].CLK
+CLK => SD[5].CLK
+CLK => SD[6].CLK
+CLK => SD[7].CLK
+SH_C => SD[0].ENA
+SH_C => SD[1].ENA
+SH_C => SD[2].ENA
+SH_C => SD[3].ENA
+SH_C => SD[4].ENA
+SH_C => SD[5].ENA
+SH_C => SD[6].ENA
+SH_C => SD[7].ENA
+out_0 <= SD[0].DB_MAX_OUTPUT_PORT_TYPE
+out_1 <= SD[1].DB_MAX_OUTPUT_PORT_TYPE
+out_2 <= SD[2].DB_MAX_OUTPUT_PORT_TYPE
+out_3 <= SD[3].DB_MAX_OUTPUT_PORT_TYPE
+out_4 <= SD[4].DB_MAX_OUTPUT_PORT_TYPE
+out_5 <= SD[5].DB_MAX_OUTPUT_PORT_TYPE
+out_6 <= SD[6].DB_MAX_OUTPUT_PORT_TYPE
+out_7 <= SD[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|start_g:strt
+IN_0 => START.IN0
+IN_1 => START.IN1
+IN_2 => START.IN1
+IN_3 => START.IN1
+IN_4 => START.IN1
+IN_5 => START.IN1
+IN_6 => START.IN1
+IN_7 => START.IN1
+START <= START.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|REG:regA0
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|REG:regA1
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|REG:regA2
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|VOTER:vot
+Q0 => V.IN0
+Q0 => V.IN0
+Q1 => V.IN1
+Q1 => V.IN0
+Q2 => V.IN1
+Q2 => V.IN1
+V <= V.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|REG:regVot
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|shift_register:SHPIN
+RxD => SD[7].DATAIN
+CLK => SD[0].CLK
+CLK => SD[1].CLK
+CLK => SD[2].CLK
+CLK => SD[3].CLK
+CLK => SD[4].CLK
+CLK => SD[5].CLK
+CLK => SD[6].CLK
+CLK => SD[7].CLK
+SH_C => SD[0].ENA
+SH_C => SD[1].ENA
+SH_C => SD[2].ENA
+SH_C => SD[3].ENA
+SH_C => SD[4].ENA
+SH_C => SD[5].ENA
+SH_C => SD[6].ENA
+SH_C => SD[7].ENA
+out_0 <= SD[0].DB_MAX_OUTPUT_PORT_TYPE
+out_1 <= SD[1].DB_MAX_OUTPUT_PORT_TYPE
+out_2 <= SD[2].DB_MAX_OUTPUT_PORT_TYPE
+out_3 <= SD[3].DB_MAX_OUTPUT_PORT_TYPE
+out_4 <= SD[4].DB_MAX_OUTPUT_PORT_TYPE
+out_5 <= SD[5].DB_MAX_OUTPUT_PORT_TYPE
+out_6 <= SD[6].DB_MAX_OUTPUT_PORT_TYPE
+out_7 <= SD[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|Cnt_c:counter_c
+CLR => K[0].ACLR
+CLR => K[1].ACLR
+CLR => K[2].ACLR
+CLR => K[3].ACLR
+CLR => K[4].ACLR
+CLR => K[5].ACLR
+CLR => K[6].ACLR
+CLR => TC3~reg0.ACLR
+CLR => TC2~reg0.ACLR
+CLR => TC1~reg0.ACLR
+CLK => K[0].CLK
+CLK => K[1].CLK
+CLK => K[2].CLK
+CLK => K[3].CLK
+CLK => K[4].CLK
+CLK => K[5].CLK
+CLK => K[6].CLK
+CLK => TC3~reg0.CLK
+CLK => TC2~reg0.CLK
+CLK => TC1~reg0.CLK
+CE => K[0].ENA
+CE => TC1~reg0.ENA
+CE => TC2~reg0.ENA
+CE => TC3~reg0.ENA
+CE => K[6].ENA
+CE => K[5].ENA
+CE => K[4].ENA
+CE => K[3].ENA
+CE => K[2].ENA
+CE => K[1].ENA
+TC1 <= TC1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+TC2 <= TC2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+TC3 <= TC3~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|RX:rix|Cnt_0:counter_0
+CLR => K[0].ACLR
+CLR => K[1].ACLR
+CLR => K[2].ACLR
+CLR => K[3].ACLR
+CLR => K[4].ACLR
+CLR => K[5].ACLR
+CLR => K[6].ACLR
+CLR => TC0~reg0.ACLR
+CLK => K[0].CLK
+CLK => K[1].CLK
+CLK => K[2].CLK
+CLK => K[3].CLK
+CLK => K[4].CLK
+CLK => K[5].CLK
+CLK => K[6].CLK
+CLK => TC0~reg0.CLK
+CE => K[0].ENA
+CE => TC0~reg0.ENA
+CE => K[6].ENA
+CE => K[5].ENA
+CE => K[4].ENA
+CE => K[3].ENA
+CE => K[2].ENA
+CE => K[1].ENA
+TC0 <= TC0~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i
+CLK => REG_TX:R_TX.CLK
+CLK => REG_RX:R_RX.CLK
+CLK => REG_CONTROL:R_C.CLK
+CLK => REG_STATUS:R_S.CLK
+CLK => FSM_BUS:CU.clk
+CS => FSM_BUS:CU.cs
+RWn => FSM_BUS:CU.RWn
+A[0] => REG_GATE:gate.A[0]
+A[0] => ADD:address_mux.A[0]
+A[0] => ADD:address.A[0]
+A[1] => REG_GATE:gate.A[1]
+A[1] => ADD:address_mux.A[1]
+A[1] => ADD:address.A[1]
+A[2] => REG_GATE:gate.A[2]
+A[2] => ADD:address_mux.A[2]
+A[2] => ADD:address.A[2]
+STATUS_IN[0] => REG_STATUS:R_S.D[0]
+STATUS_IN[1] => REG_STATUS:R_S.D[1]
+STATUS_IN[2] => REG_STATUS:R_S.D[2]
+rx_en <= REG_CONTROL:R_C.Q[1]
+tx_en <= REG_CONTROL:R_C.Q[0]
+new_tx <= REG_GATE:gate.new_tx
+read_rx <= REG_GATE:gate.read_rx
+D_IN[0] => REG_TX:R_TX.D[0]
+D_IN[0] => REG_CONTROL:R_C.D[0]
+D_IN[1] => REG_TX:R_TX.D[1]
+D_IN[1] => REG_CONTROL:R_C.D[1]
+D_IN[2] => REG_TX:R_TX.D[2]
+D_IN[2] => REG_CONTROL:R_C.D[2]
+D_IN[3] => REG_TX:R_TX.D[3]
+D_IN[4] => REG_TX:R_TX.D[4]
+D_IN[5] => REG_TX:R_TX.D[5]
+D_IN[6] => REG_TX:R_TX.D[6]
+D_IN[7] => REG_TX:R_TX.D[7]
+PIN_R[0] => REG_RX:R_RX.D[0]
+PIN_R[1] => REG_RX:R_RX.D[1]
+PIN_R[2] => REG_RX:R_RX.D[2]
+PIN_R[3] => REG_RX:R_RX.D[3]
+PIN_R[4] => REG_RX:R_RX.D[4]
+PIN_R[5] => REG_RX:R_RX.D[5]
+PIN_R[6] => REG_RX:R_RX.D[6]
+PIN_R[7] => REG_RX:R_RX.D[7]
+D_OUT[0] <= MUX_OUT:MUX.OUTPUT[0]
+D_OUT[1] <= MUX_OUT:MUX.OUTPUT[1]
+D_OUT[2] <= MUX_OUT:MUX.OUTPUT[2]
+D_OUT[3] <= MUX_OUT:MUX.OUTPUT[3]
+D_OUT[4] <= MUX_OUT:MUX.OUTPUT[4]
+D_OUT[5] <= MUX_OUT:MUX.OUTPUT[5]
+D_OUT[6] <= MUX_OUT:MUX.OUTPUT[6]
+D_OUT[7] <= MUX_OUT:MUX.OUTPUT[7]
+PIN_T[0] <= REG_TX:R_TX.Q[0]
+PIN_T[1] <= REG_TX:R_TX.Q[1]
+PIN_T[2] <= REG_TX:R_TX.Q[2]
+PIN_T[3] <= REG_TX:R_TX.Q[3]
+PIN_T[4] <= REG_TX:R_TX.Q[4]
+PIN_T[5] <= REG_TX:R_TX.Q[5]
+PIN_T[6] <= REG_TX:R_TX.Q[6]
+PIN_T[7] <= REG_TX:R_TX.Q[7]
+
+
+|UART|BUS_INT:bus_i|REG_GATE:gate
+force => new_tx.IN0
+force => read_rx.IN0
+A[0] => read_rx.IN1
+A[0] => new_tx.IN1
+A[1] => read_rx.IN1
+A[1] => new_tx.IN1
+A[2] => new_tx.IN1
+A[2] => read_rx.IN1
+new_tx <= new_tx.DB_MAX_OUTPUT_PORT_TYPE
+read_rx <= read_rx.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|REG_TX:R_TX
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+CLK => Q[5]~reg0.CLK
+CLK => Q[6]~reg0.CLK
+CLK => Q[7]~reg0.CLK
+EN_REG[0] => Equal0.IN1
+EN_REG[1] => Equal0.IN0
+EN_REG[2] => Equal0.IN2
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|REG_RX:R_RX
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+CLK => Q[5]~reg0.CLK
+CLK => Q[6]~reg0.CLK
+CLK => Q[7]~reg0.CLK
+EN_REG[0] => Equal0.IN2
+EN_REG[1] => Equal0.IN1
+EN_REG[2] => Equal0.IN0
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|REG_CONTROL:R_C
+CLK => S[0].CLK
+CLK => S[1].CLK
+CLK => S[2].CLK
+RESET => S[0].ACLR
+RESET => S[1].ACLR
+RESET => S[2].ACLR
+D[0] => S[0].DATAIN
+D[1] => S[1].DATAIN
+D[2] => S[2].DATAIN
+EN_REG[0] => Equal0.IN1
+EN_REG[1] => Equal0.IN2
+EN_REG[2] => Equal0.IN0
+Q[0] <= S[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= S[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= S[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|REG_STATUS:R_S
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+EN_REG[0] => Equal0.IN2
+EN_REG[1] => Equal0.IN1
+EN_REG[2] => Equal0.IN0
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|ADD:address_mux
+force => E.IN0
+force => E.IN0
+force => E.IN0
+A[0] => E.IN1
+A[1] => E.IN1
+A[2] => E.IN1
+E[0] <= E.DB_MAX_OUTPUT_PORT_TYPE
+E[1] <= E.DB_MAX_OUTPUT_PORT_TYPE
+E[2] <= E.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|ADD:address
+force => E.IN0
+force => E.IN0
+force => E.IN0
+A[0] => E.IN1
+A[1] => E.IN1
+A[2] => E.IN1
+E[0] <= E.DB_MAX_OUTPUT_PORT_TYPE
+E[1] <= E.DB_MAX_OUTPUT_PORT_TYPE
+E[2] <= E.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|MUX_OUT:MUX
+RX_IN[0] => Mux7.IN6
+RX_IN[1] => Mux6.IN6
+RX_IN[2] => Mux5.IN6
+RX_IN[3] => Mux4.IN7
+RX_IN[4] => Mux3.IN7
+RX_IN[5] => Mux2.IN7
+RX_IN[6] => Mux1.IN7
+RX_IN[7] => Mux0.IN7
+STATUS_IN[0] => Mux7.IN7
+STATUS_IN[1] => Mux6.IN7
+STATUS_IN[2] => Mux5.IN7
+SEL_E[0] => Mux0.IN10
+SEL_E[0] => Mux1.IN10
+SEL_E[0] => Mux2.IN10
+SEL_E[0] => Mux3.IN10
+SEL_E[0] => Mux4.IN10
+SEL_E[0] => Mux5.IN10
+SEL_E[0] => Mux6.IN10
+SEL_E[0] => Mux7.IN10
+SEL_E[1] => Mux0.IN9
+SEL_E[1] => Mux1.IN9
+SEL_E[1] => Mux2.IN9
+SEL_E[1] => Mux3.IN9
+SEL_E[1] => Mux4.IN9
+SEL_E[1] => Mux5.IN9
+SEL_E[1] => Mux6.IN9
+SEL_E[1] => Mux7.IN9
+SEL_E[2] => Mux0.IN8
+SEL_E[2] => Mux1.IN8
+SEL_E[2] => Mux2.IN8
+SEL_E[2] => Mux3.IN8
+SEL_E[2] => Mux4.IN8
+SEL_E[2] => Mux5.IN8
+SEL_E[2] => Mux6.IN8
+SEL_E[2] => Mux7.IN8
+OUTPUT[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OUTPUT[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|BUS_INT:bus_i|FSM_BUS:CU
+clk => PS~1.DATAIN
+cs => process_0.IN0
+cs => process_0.IN0
+RWn => process_0.IN1
+RWn => process_0.IN1
+clear => ~NO_FANOUT~
+force <= force.DB_MAX_OUTPUT_PORT_TYPE
+force_m <= force_m.DB_MAX_OUTPUT_PORT_TYPE
+reset_ctrl <= <GND>
+
+
+|UART|ATN:ATN_B
+DONE_T => OR_GATE:OR_PORT.DONE_T
+DONE_T => REG:REG_TX.D
+DONE_R => REG7:reg_7.EN_REG
+DONE_R => OR_GATE:OR_PORT.DONE_R
+DONE_R => REG:REG_RX.D
+NEW_TX => OR_GATE:OR_PORT.NEW_TX
+READ_RX => OR_GATE:OR_PORT.READ_RX
+CLK => REG7:reg_7.CLK
+CLK => FSM_ATN:CU.CLK
+CLK => REG:REG_RX.CLK
+CLK => REG:REG_TX.CLK
+CLK => REG:REG_ERROR.CLK
+ATNCK => FSM_ATN:CU.ATNCK
+RX[0] => REG7:reg_7.D[0]
+RX[1] => REG7:reg_7.D[1]
+RX[2] => REG7:reg_7.D[2]
+RX[3] => REG7:reg_7.D[3]
+RX[4] => REG7:reg_7.D[4]
+RX[5] => REG7:reg_7.D[5]
+RX[6] => REG7:reg_7.D[6]
+RX[7] => REG7:reg_7.D[7]
+RX_OUT[0] <= REG7:reg_7.Q[0]
+RX_OUT[1] <= REG7:reg_7.Q[1]
+RX_OUT[2] <= REG7:reg_7.Q[2]
+RX_OUT[3] <= REG7:reg_7.Q[3]
+RX_OUT[4] <= REG7:reg_7.Q[4]
+RX_OUT[5] <= REG7:reg_7.Q[5]
+RX_OUT[6] <= REG7:reg_7.Q[6]
+RX_OUT[7] <= REG7:reg_7.Q[7]
+STATUS_OUT[0] <= REG:REG_TX.Q
+STATUS_OUT[1] <= REG:REG_RX.Q
+STATUS_OUT[2] <= REG:REG_ERROR.Q
+ATN <= FSM_ATN:CU.ATN
+
+
+|UART|ATN:ATN_B|REG7:reg_7
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+CLK => Q[5]~reg0.CLK
+CLK => Q[6]~reg0.CLK
+CLK => Q[7]~reg0.CLK
+EN_REG => Q[0]~reg0.ENA
+EN_REG => Q[1]~reg0.ENA
+EN_REG => Q[2]~reg0.ENA
+EN_REG => Q[3]~reg0.ENA
+EN_REG => Q[4]~reg0.ENA
+EN_REG => Q[5]~reg0.ENA
+EN_REG => Q[6]~reg0.ENA
+EN_REG => Q[7]~reg0.ENA
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|ATN:ATN_B|OR_GATE:OR_PORT
+DONE_T => ATN_req.IN0
+DONE_T => en_reg_TX.IN0
+DONE_R => ATN_req.IN1
+DONE_R => en_reg_RX.IN0
+NEW_TX => en_reg_TX.IN1
+READ_RX => en_reg_RX.IN1
+ATN_req <= ATN_req.DB_MAX_OUTPUT_PORT_TYPE
+en_reg_TX <= en_reg_TX.DB_MAX_OUTPUT_PORT_TYPE
+en_reg_RX <= en_reg_RX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|ATN:ATN_B|FSM_ATN:CU
+ATN_req => NS.ATNCK_ST.IN0
+ATNCK => NS.ATNCK_ST.IN1
+ATNCK => NS.ATNCK_ST.DATAA
+ATNCK => NS.ATN_ST.DATAA
+CLK => PS~1.DATAIN
+ATN <= ATN$latch.DB_MAX_OUTPUT_PORT_TYPE
+ERROR <= <GND>
+en_reg_ERROR <= en_reg_ERROR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|ATN:ATN_B|REG:REG_RX
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|ATN:ATN_B|REG:REG_TX
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART|ATN:ATN_B|REG:REG_ERROR
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

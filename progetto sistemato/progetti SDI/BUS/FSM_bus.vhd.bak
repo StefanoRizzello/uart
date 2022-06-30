@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all; 
+
+ENTITY FSM_BUS IS
+
+port ( clk, done_t,done_r,cs,w/r,: IN std_logic;
+       force,state, new_tx, rx_en, ATN: BUFFER std_logic);
+end FSM_RX;
+
+
+ARCHITECTURE behav OF FSM_RX IS 
+
+TYPE STATE_TYPE IS ( WAIT_ST,READ_ST,WRITE_ST,EN_RX_ST,EN_TX_ST,BUSY,EMPTY_TX,FULL_RX);
+SIGNAL PS, NS: STATE_TYPE;
+
+BEGIN
+
+PROCESS( CLK,PS) -- aggiornamento stato
+BEGIN 
+
+CASE PS IS
+WHEN SH_X => I

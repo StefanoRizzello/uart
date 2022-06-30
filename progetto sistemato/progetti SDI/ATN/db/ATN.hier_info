@@ -1,0 +1,86 @@
+|ATN
+DONE_T => OR_GATE:OR_PORT.DONE_T
+DONE_T => REG:REG_TX.D
+DONE_R => REG7:reg_7.EN_REG
+DONE_R => OR_GATE:OR_PORT.DONE_R
+DONE_R => REG:REG_RX.D
+NEW_TX => OR_GATE:OR_PORT.NEW_TX
+READ_RX => OR_GATE:OR_PORT.READ_RX
+CLK => REG7:reg_7.CLK
+CLK => FSM_ATN:CU.CLK
+CLK => REG:REG_RX.CLK
+CLK => REG:REG_TX.CLK
+CLK => REG:REG_ERROR.CLK
+ATNCK => FSM_ATN:CU.ATNCK
+RX[0] => REG7:reg_7.D[0]
+RX[1] => REG7:reg_7.D[1]
+RX[2] => REG7:reg_7.D[2]
+RX[3] => REG7:reg_7.D[3]
+RX[4] => REG7:reg_7.D[4]
+RX[5] => REG7:reg_7.D[5]
+RX[6] => REG7:reg_7.D[6]
+RX[7] => REG7:reg_7.D[7]
+
+
+|ATN|REG7:reg_7
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+CLK => Q[5]~reg0.CLK
+CLK => Q[6]~reg0.CLK
+CLK => Q[7]~reg0.CLK
+EN_REG => Q[0]~reg0.ENA
+EN_REG => Q[1]~reg0.ENA
+EN_REG => Q[2]~reg0.ENA
+EN_REG => Q[3]~reg0.ENA
+EN_REG => Q[4]~reg0.ENA
+EN_REG => Q[5]~reg0.ENA
+EN_REG => Q[6]~reg0.ENA
+EN_REG => Q[7]~reg0.ENA
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+
+
+|ATN|OR_GATE:OR_PORT
+DONE_T => ATN_req.IN0
+DONE_T => en_reg_TX.IN0
+DONE_R => ATN_req.IN1
+DONE_R => en_reg_RX.IN0
+NEW_TX => en_reg_TX.IN1
+READ_RX => en_reg_RX.IN1
+
+
+|ATN|FSM_ATN:CU
+ATN_req => NS.POLLING.IN0
+ATNCK => NS.POLLING.IN1
+ATNCK => NS.ATNCK_ST.DATAA
+ATNCK => NS.ATN_ST.DATAA
+CLK => PS~1.DATAIN
+
+
+|ATN|REG:REG_RX
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+
+
+|ATN|REG:REG_TX
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+
+
+|ATN|REG:REG_ERROR
+D => Q~reg0.DATAIN
+EN_REG => Q~reg0.ENA
+CLK => Q~reg0.CLK
+
+

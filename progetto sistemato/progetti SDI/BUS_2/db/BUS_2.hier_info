@@ -1,0 +1,199 @@
+|BUS_INT
+CLK => REG_TX:R_TX.CLK
+CLK => REG_RX:R_RX.CLK
+CLK => REG_CONTROL:R_C.CLK
+CLK => REG_STATUS:R_S.CLK
+CLK => FSM_BUS:CU.clk
+CS => FSM_BUS:CU.cs
+RWn => FSM_BUS:CU.RWn
+A[0] => REG_GATE:gate.A[0]
+A[0] => ADD:address_mux.A[0]
+A[0] => ADD:address.A[0]
+A[1] => REG_GATE:gate.A[1]
+A[1] => ADD:address_mux.A[1]
+A[1] => ADD:address.A[1]
+A[2] => REG_GATE:gate.A[2]
+A[2] => ADD:address_mux.A[2]
+A[2] => ADD:address.A[2]
+STATUS_IN[0] => ~NO_FANOUT~
+STATUS_IN[1] => ~NO_FANOUT~
+STATUS_IN[2] => ~NO_FANOUT~
+D_IN[0] => REG_TX:R_TX.D[0]
+D_IN[0] => REG_CONTROL:R_C.D[0]
+D_IN[1] => REG_TX:R_TX.D[1]
+D_IN[1] => REG_CONTROL:R_C.D[1]
+D_IN[2] => REG_TX:R_TX.D[2]
+D_IN[2] => REG_CONTROL:R_C.D[2]
+D_IN[3] => REG_TX:R_TX.D[3]
+D_IN[4] => REG_TX:R_TX.D[4]
+D_IN[5] => REG_TX:R_TX.D[5]
+D_IN[6] => REG_TX:R_TX.D[6]
+D_IN[7] => REG_TX:R_TX.D[7]
+PIN_R[0] => REG_RX:R_RX.D[0]
+PIN_R[1] => REG_RX:R_RX.D[1]
+PIN_R[2] => REG_RX:R_RX.D[2]
+PIN_R[3] => REG_RX:R_RX.D[3]
+PIN_R[4] => REG_RX:R_RX.D[4]
+PIN_R[5] => REG_RX:R_RX.D[5]
+PIN_R[6] => REG_RX:R_RX.D[6]
+PIN_R[7] => REG_RX:R_RX.D[7]
+
+
+|BUS_INT|REG_GATE:gate
+force => new_tx.IN0
+force => read_rx.IN0
+A[0] => read_rx.IN1
+A[0] => new_tx.IN1
+A[1] => read_rx.IN1
+A[1] => new_tx.IN1
+A[2] => new_tx.IN1
+A[2] => read_rx.IN1
+
+
+|BUS_INT|REG_TX:R_TX
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+CLK => Q[5]~reg0.CLK
+CLK => Q[6]~reg0.CLK
+CLK => Q[7]~reg0.CLK
+EN_REG[0] => Equal0.IN1
+EN_REG[1] => Equal0.IN0
+EN_REG[2] => Equal0.IN2
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+
+
+|BUS_INT|REG_RX:R_RX
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+CLK => Q[5]~reg0.CLK
+CLK => Q[6]~reg0.CLK
+CLK => Q[7]~reg0.CLK
+EN_REG[0] => Equal0.IN2
+EN_REG[1] => Equal0.IN1
+EN_REG[2] => Equal0.IN0
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+
+
+|BUS_INT|REG_CONTROL:R_C
+CLK => S[0].CLK
+CLK => S[1].CLK
+CLK => S[2].CLK
+RESET => S[0].ACLR
+RESET => S[1].ACLR
+RESET => S[2].ACLR
+D[0] => S[0].DATAIN
+D[1] => S[1].DATAIN
+D[2] => S[2].DATAIN
+EN_REG[0] => Equal0.IN1
+EN_REG[1] => Equal0.IN2
+EN_REG[2] => Equal0.IN0
+
+
+|BUS_INT|REG_STATUS:R_S
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+EN_REG[0] => Equal0.IN2
+EN_REG[1] => Equal0.IN1
+EN_REG[2] => Equal0.IN0
+
+
+|BUS_INT|ADD:address_mux
+force => E.IN0
+force => E.IN0
+force => E.IN0
+A[0] => E.IN1
+A[1] => E.IN1
+A[2] => E.IN1
+
+
+|BUS_INT|ADD:address
+force => E.IN0
+force => E.IN0
+force => E.IN0
+A[0] => E.IN1
+A[1] => E.IN1
+A[2] => E.IN1
+
+
+|BUS_INT|MUX_OUT:MUX
+RX_IN[0] => Mux7.IN6
+RX_IN[1] => Mux6.IN6
+RX_IN[2] => Mux5.IN6
+RX_IN[3] => Mux4.IN7
+RX_IN[4] => Mux3.IN7
+RX_IN[5] => Mux2.IN7
+RX_IN[6] => Mux1.IN7
+RX_IN[7] => Mux0.IN7
+STATUS_IN[0] => Mux7.IN7
+STATUS_IN[1] => Mux6.IN7
+STATUS_IN[2] => Mux5.IN7
+SEL_E[0] => Mux0.IN10
+SEL_E[0] => Mux1.IN10
+SEL_E[0] => Mux2.IN10
+SEL_E[0] => Mux3.IN10
+SEL_E[0] => Mux4.IN10
+SEL_E[0] => Mux5.IN10
+SEL_E[0] => Mux6.IN10
+SEL_E[0] => Mux7.IN10
+SEL_E[1] => Mux0.IN9
+SEL_E[1] => Mux1.IN9
+SEL_E[1] => Mux2.IN9
+SEL_E[1] => Mux3.IN9
+SEL_E[1] => Mux4.IN9
+SEL_E[1] => Mux5.IN9
+SEL_E[1] => Mux6.IN9
+SEL_E[1] => Mux7.IN9
+SEL_E[2] => Mux0.IN8
+SEL_E[2] => Mux1.IN8
+SEL_E[2] => Mux2.IN8
+SEL_E[2] => Mux3.IN8
+SEL_E[2] => Mux4.IN8
+SEL_E[2] => Mux5.IN8
+SEL_E[2] => Mux6.IN8
+SEL_E[2] => Mux7.IN8
+
+
+|BUS_INT|FSM_BUS:CU
+clk => PS~1.DATAIN
+cs => process_0.IN0
+cs => process_0.IN0
+RWn => process_0.IN1
+RWn => process_0.IN1
+control[0] => Equal0.IN0
+control[0] => Equal1.IN2
+control[0] => Equal2.IN1
+control[0] => Equal3.IN2
+control[1] => Equal0.IN2
+control[1] => Equal1.IN0
+control[1] => Equal2.IN0
+control[1] => Equal3.IN1
+control[2] => Equal0.IN1
+control[2] => Equal1.IN1
+control[2] => Equal2.IN2
+control[2] => Equal3.IN0
+
+

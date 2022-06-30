@@ -1,0 +1,113 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "TX_p",
+					"strict" : false
+				},
+				{
+					"name" : "ATN_p",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "CS",
+					"strict" : false
+				},
+				{
+					"name" : "ATNCK",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RWn",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RX_p",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_IN[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

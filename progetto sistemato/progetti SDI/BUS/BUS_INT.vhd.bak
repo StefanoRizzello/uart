@@ -1,0 +1,11 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+ENTITY BUS_INT IS
+
+PORT ( CLK: IN std_logic;
+       EN_REG: IN std_logic_vector(2 downto 0);
+		 D: IN std_logic_vector (7 downto 0);
+       Q: OUT std_logic_vector(7 downto 0));
+END BUS_INT;

@@ -1,0 +1,359 @@
+Quartus II
+Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+14
+1083
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+FSM_bus
+# storage
+db|bus.(0).cnf
+db|bus.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+fsm_bus.vhd
+523be3a2a0a494fbcad2d8ef493651f6
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+FSM_BUS:CU
+}
+# macro_sequence
+
+# end
+# entity
+MUX_OUT
+# storage
+db|bus.(1).cnf
+db|bus.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+mux_out.vhd
+9a40674a78191df8b3e3a636196423a8
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+MUX_OUT:MUX
+}
+# macro_sequence
+
+# end
+# entity
+REG3
+# storage
+db|bus.(2).cnf
+db|bus.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg3.vhd
+f086648d338790a759f0d88ab1379af1
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+REG3:REG
+}
+# macro_sequence
+
+# end
+# entity
+BUS_INT
+# storage
+db|bus.(3).cnf
+db|bus.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+bus_int.vhd
+7d31cf343056e7a9a97d2dc7ae9527e0
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+REG_TX
+# storage
+db|bus.(4).cnf
+db|bus.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_tx.vhd
+ecef395f7cd11d1e78f77e2d77def9b1
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(en_reg)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(d)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(q)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+REG_TX:R_TX
+}
+# macro_sequence
+
+# end
+# entity
+REG_RX
+# storage
+db|bus.(5).cnf
+db|bus.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_rx.vhd
+91ace5d26de216b2985668d3466f31c
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(en_reg)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(d)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(q)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+REG_RX:R_RX
+}
+# macro_sequence
+
+# end
+# entity
+REG_CONTROL
+# storage
+db|bus.(6).cnf
+db|bus.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_control.vhd
+fdb2b9b58d805914e07bc47bd210df3c
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(d)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(en_reg)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(q)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+REG_CONTROL:R_C
+}
+# macro_sequence
+
+# end
+# entity
+REG_STATUS
+# storage
+db|bus.(7).cnf
+db|bus.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_status.vhd
+fb5c846edd17614666a5c9653ef770
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(d)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(en_reg)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(q)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+REG_STATUS:R_S
+}
+# macro_sequence
+
+# end
+# entity
+ADD
+# storage
+db|bus.(8).cnf
+db|bus.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+add.vhd
+ab60f769dbd2c080736ec923def69db
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(a)
+2 downto 0
+PARAMETER_STRING
+USR
+ constraint(e)
+2 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+ADD:address
+}
+# macro_sequence
+
+# end
+# complete
+

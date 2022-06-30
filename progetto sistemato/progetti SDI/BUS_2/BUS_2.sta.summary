@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLK'
+Slack : -3.067
+TNS   : -44.519
+
+Type  : Slow Model Setup 'FSM_BUS:CU|PS.EN_RX_ST'
+Slack : -0.260
+TNS   : -0.511
+
+Type  : Slow Model Setup 'CS'
+Slack : 1.036
+TNS   : 0.000
+
+Type  : Slow Model Hold 'FSM_BUS:CU|PS.EN_RX_ST'
+Slack : -2.765
+TNS   : -5.480
+
+Type  : Slow Model Hold 'CS'
+Slack : -1.504
+TNS   : -2.503
+
+Type  : Slow Model Hold 'CLK'
+Slack : 2.111
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -28.380
+
+Type  : Slow Model Minimum Pulse Width 'CS'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Slow Model Minimum Pulse Width 'FSM_BUS:CU|PS.EN_RX_ST'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLK'
+Slack : -1.331
+TNS   : -11.839
+
+Type  : Fast Model Setup 'FSM_BUS:CU|PS.EN_RX_ST'
+Slack : 0.254
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CS'
+Slack : 0.846
+TNS   : 0.000
+
+Type  : Fast Model Hold 'FSM_BUS:CU|PS.EN_RX_ST'
+Slack : -1.549
+TNS   : -3.097
+
+Type  : Fast Model Hold 'CS'
+Slack : -0.404
+TNS   : -0.720
+
+Type  : Fast Model Hold 'CLK'
+Slack : 1.074
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -28.380
+
+Type  : Fast Model Minimum Pulse Width 'CS'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Fast Model Minimum Pulse Width 'FSM_BUS:CU|PS.EN_RX_ST'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------
